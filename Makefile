@@ -22,9 +22,6 @@ logs: ## Tail docker compose logs
 ps: ## Check container status
 	docker compose ps
 
-test: ## Check if everyting going well
-	curl http://localhost:18000/
-
 help: ## Show options
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
 		awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
