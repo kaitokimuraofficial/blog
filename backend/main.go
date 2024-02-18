@@ -1,9 +1,8 @@
 package main
 
 import (
-	"net/http"
-
 	"blog/controller"
+	"net/http"
 )
 
 func main() {
