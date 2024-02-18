@@ -1,5 +1,6 @@
+import React from 'react';
 import { useState } from 'react'
-import './App.css'
+import "./App.css"
 
 async function logMovies() {
   const response = await fetch("http://localhost:18000");
@@ -7,7 +8,7 @@ async function logMovies() {
   console.log(movies);
 }
 
-function App() {
+function Home() {
   const [count, setCount] = useState(0)
   logMovies()
 
@@ -22,8 +23,9 @@ function App() {
       <p className="read-the-docs">
         
       </p>
+      
     </>
   )
 }
 
-export default App
+export default Home
