@@ -1,22 +1,22 @@
 version: "3"
 
 services:
-  db:
-    image: mysql:8.0.29
-    platform: linux/amd64
-    container_name: blog_db
-    volumes:
-      - ./db/initdb.d:/docker-entrypoint-initdb.d
-      - ./db/conf.d/:/etc/mysql/conf.d
-      - ./db/my.cnf:/etc/mysql/conf.d/my.cnf
-      - db-data:/var/lib/mysql
-    environment:
-      - MYSQL_ROOT_PASSWORD=password
-      - MYSQL_USER=user
-      - MYSQL_PASSWORD=password
-      - MYSQL_DATABASE=booked
-    ports:
-      - "3306:3306"
+  # db:
+  #   image: mysql:8.0.29
+  #   platform: linux/amd64
+  #   container_name: blog_db
+  #   volumes:
+  #     - ./db/initdb.d:/docker-entrypoint-initdb.d
+  #     - ./db/conf.d/:/etc/mysql/conf.d
+  #     - ./db/my.cnf:/etc/mysql/conf.d/my.cnf
+  #     - db-data:/var/lib/mysql
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=password
+  #     - MYSQL_USER=user
+  #     - MYSQL_PASSWORD=password
+  #     - MYSQL_DATABASE=booked
+  #   ports:
+  #     - "3306:3306"
 
   frontend:
     container_name: blog_frontend
@@ -27,6 +27,8 @@ services:
     environment:
       PORT: 3000
       API_URL: http://blog_backend:8080
+    volumes:
+      - ./:/app
 
   backend:
     container_name: blog_backend
@@ -36,8 +38,3 @@ services:
         - target=dev
     ports:
       - "18000:8080"
-    depends_on:
-      - db
-  
-volumes:
-  db-data:
