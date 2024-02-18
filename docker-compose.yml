@@ -28,7 +28,7 @@ services:
       PORT: 3000
       API_URL: http://blog_backend:8080
     volumes:
-      - ./:/app
+      - ./frontend:/app
 
   backend:
     container_name: blog_backend
