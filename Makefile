@@ -3,7 +3,7 @@
 
 DOCKER_TAG := latest
 restart: ## Rebuild and start
-	docker-compose down --volume
+	docker-compose down --volumes
 	docker-compose build --no-cache
 	docker-compose up -d
 

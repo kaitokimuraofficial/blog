@@ -5,7 +5,7 @@ import generouted from '@generouted/react-router/plugin';
 export default defineConfig({
   plugins: [react(), generouted()],
   server: {
-    host: 'blog_frontend',
+    host: true,
     port: parseInt(process.env.PORT || '3000'),
     proxy: {
       '/': {
