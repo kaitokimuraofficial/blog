@@ -8,7 +8,8 @@ import (
 func GetRouter() http.Handler {
 
 	mux := http.NewServeMux()
-	mux.HandleFunc("GET /", middleware.Handle(getHome))
+	mux.HandleFunc("GET /api", middleware.Handle(getHome))
+	mux.HandleFunc("GET /api/health", middleware.Handle(getHealth))
 
 	return mux
 }
