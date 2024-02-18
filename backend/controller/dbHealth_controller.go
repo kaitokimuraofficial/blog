@@ -15,11 +15,8 @@ func getDBHealth(w http.ResponseWriter, r *http.Request) error {
 		log.Printf("DBNew error %s", err)
 		return err
 	}
-	err = db.QueryRow(`SELECT TITLE, BODY FROM ARTICLE WHERE ARTICLE_ID = $1`,
-		1,
-	).Scan(
+	err = db.QueryRow(`SELECT Title, Body FROM article WHERE ArticleId = 1`).Scan(
 		&article.Title,
-		&article.ArticleID,
 		&article.Body,
 	)
 	if err != nil {
