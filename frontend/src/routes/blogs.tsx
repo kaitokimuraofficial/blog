@@ -1,14 +1,14 @@
-import { useLoaderData } from "react-router";
-import styled from "styled-components";
+import { useLoaderData } from 'react-router';
+import styled from 'styled-components';
 
 export default function Blogs() {
-  const data = useLoaderData() as unknown as {hello: String};
+  const data = useLoaderData() as any;
+  console.log(data);
 
-
-  return <P>{data.hello}</P>;
+  return <P>{data.movies.greeting}</P>;
 }
 
-
 const P = styled.p`
-color: blue;
+  height: 100px;
+  color: blue;
 `;
