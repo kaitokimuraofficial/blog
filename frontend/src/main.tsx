@@ -7,6 +7,7 @@ import { rootLoader } from './routes/root';
 
 import Root from './routes/root';
 import Blogs from './routes/blogs';
+import About from './routes/About';
 import './index.css';
 
 const router = createBrowserRouter([
@@ -14,11 +15,23 @@ const router = createBrowserRouter([
     path: '/',
     element: <Root />,
     errorElement: <ErrorPage />,
-  },
-  {
-    path: 'blogs',
-    element: <Blogs />,
-    loader: rootLoader
+    children: [
+      {
+        path: '/',
+        element: <About />,
+        loader: rootLoader,
+      },
+      {
+        path: 'blog',
+        element: <Blogs />,
+        loader: rootLoader,
+      },
+      {
+        path: 'about',
+        element: <About />,
+        loader: rootLoader,
+      },
+    ],
   },
 ]);
 
