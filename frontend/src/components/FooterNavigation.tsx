@@ -17,7 +17,7 @@ const FooterNavigation = () => {
 export default FooterNavigation;
 
 const Outer = styled.div`
-  dispaly: flex;
+  display: flex;
   flex-direction: column;
   height: 100%;
   width: 100%;
