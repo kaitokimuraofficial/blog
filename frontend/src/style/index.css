@@ -1,11 +1,24 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --white: #f4f6f8;
+  --gray: #808080;
+  --indigo: #1f242e;
+  --light-indigo: #393f4c;
+
+  --black-background-color: var(--indigo);
+  --light-black-background-color: var(--light-indigo);
+  --light-background-color: var(--white);
+
+  --font-sawarabi-gothic: 'Sawarabi Gothic', sans-serif;
+
+  font-family: var(--font-sawarabi-gothic);
   line-height: 1.5;
   font-weight: 400;
+  display: flex;
+  justify-content: center;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: var(--indigo);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -23,9 +36,9 @@ a:hover {
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
+  margin: 0 auto;
+  padding: 0;
+  justify-content: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -65,4 +78,8 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.bg-light {
+  background-color: #1f242e !important;
 }

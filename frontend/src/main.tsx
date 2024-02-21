@@ -8,7 +8,7 @@ import { rootLoader } from './routes/root';
 import Root from './routes/root';
 import Blogs from './routes/blogs';
 import About from './routes/About';
-import './index.css';
+import './style/index.css';
 
 const router = createBrowserRouter([
   {
