@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const Header = () => {
   return (
@@ -16,13 +16,13 @@ const Header = () => {
         </ColumnLeft>
         <ColumnRight>
           <A href="https://github.com/kaitokimuraofficial" target="blank">
-            <Img src="public/github.svg" />
+            <Img src="images/icons/github.svg" />
           </A>
           <A
             href="https://www.linkedin.com/in/kaito-kimura-03b88b21a/"
             target="blank"
           >
-            <Img src="public/Linkedin.svg" />
+            <Img src="images/icons/Linkedin.svg" />
           </A>
         </ColumnRight>
       </Right>
@@ -39,6 +39,7 @@ const Outer = styled.div`
   justify-content: space-between;
   height: 40px;
   width: 1000px;
+  background-color: var(--black-background-color);
 `;
 
 const Title = styled.div`
@@ -74,7 +75,7 @@ const Img = styled.img`
 `;
 
 const A = styled.a`
-  color: gray;
+  color: #808080;
   font-weight: bold;
 
   :hover {

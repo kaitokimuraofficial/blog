@@ -48,6 +48,7 @@ const FooterOuter = styled.div`
   display: flex;
   flex-direction: column;
   width: 1000px;
+  background-color: var(--light-black-background-color);
 `;
 
 const NavigationOuter = styled.div`
