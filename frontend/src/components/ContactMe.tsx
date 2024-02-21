@@ -23,12 +23,14 @@ const ContactMeOuter = styled.div`
   flex-direction: column;
   height: 400px;
   width: 1000px;
+  align-items: center;
 `;
 
 const TitleWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 600px;
 `;
 
 const Title = styled.div`
@@ -46,6 +48,7 @@ const FormWrapper = styled.div`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  width: 600px;
 `;
 
 const FormComponent = () => {
