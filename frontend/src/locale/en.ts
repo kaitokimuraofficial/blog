@@ -1,5 +1,5 @@
 export const en = {
-    AboutHeader: {
-        title: 'kai Blogs',
-    }
-}
+  AboutHeader: {
+    title: 'kai Blogs',
+  },
+};

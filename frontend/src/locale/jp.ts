@@ -1,5 +1,5 @@
 export const jp = {
-    AboutHeader: {
-        title: 'kai Blogs',
-    }
-}
+  AboutHeader: {
+    title: 'kai Blogs',
+  },
+};
