@@ -1,15 +1,15 @@
+/* Library */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import About from './routes/About';
-import Blogs from './routes/Blogs';
+/* Component */
+import { About, Blogs, Root } from './routes';
 import ErrorPage from './error-page';
-import Root from './routes/root';
 import './style/index.css';
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { rootLoader, aboutLoader, blogsLoader } from './roader/index';
 import { rootAction, aboutAction, blogsAction } from './action';
+import { rootLoader, aboutLoader, blogsLoader } from './loader';
 
 const router = createBrowserRouter([
   {

@@ -1,14 +1,13 @@
-import styled, { css } from 'styled-components';
+/* Library */
+import styled from 'styled-components';
 
-const ScrollTop = () => {
+export function ScrollTop() {
   return (
     <ImgOuter href="#root">
       <Img src="images/icons/arrow-up.svg" />
     </ImgOuter>
   );
-};
-
-export default ScrollTop;
+}
 
 const ImgOuter = styled.a`
   display: block;
