@@ -1,7 +1,8 @@
-import { useLoaderData } from 'react-router';
+/* Library */
 import styled from 'styled-components';
+import { useLoaderData } from 'react-router';
 
-export default function Blogs() {
+export function Blogs() {
   const data = useLoaderData() as any;
   console.log(data);
 
