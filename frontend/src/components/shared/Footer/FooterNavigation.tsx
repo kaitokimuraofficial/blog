@@ -26,7 +26,6 @@ const NavElementWrapper = styled.div`
   height: '300px';
 `;
 
-
 const H1 = styled.h1`
   color: gray;
   font-size: 25px;
