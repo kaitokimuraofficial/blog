@@ -1,3 +1,3 @@
-export { About } from './About';
-export { Blogs } from './Blogs';
+export { About } from './about';
+export { Blogs } from './blogs';
 export { Root } from './root';

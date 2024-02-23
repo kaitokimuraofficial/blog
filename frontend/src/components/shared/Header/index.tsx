@@ -1,8 +1,5 @@
-/* Library */
-import styled from 'styled-components';
-
 /* Component */
-import { HeaderLink, ImgComponent } from './HeaderLink';
+import { HeaderLink, ImgComponent } from './headerLink';
 
 export const Blog = () => HeaderLink({ target: 'self', content: <p>Blog</p> });
 

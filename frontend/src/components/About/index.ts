@@ -1,6 +1,6 @@
-export { AboutHeader } from './AboutHeader';
-export { Career } from './Career';
-export { ContactMe } from './ContactMe';
-export { MySkills } from './MySkills';
-export { Portfolio } from './Portfolio';
-export { Profile } from './Profile';
+export { AboutHeader } from './aboutHeader';
+export { Career } from './career';
+export { ContactMe } from './contactMe';
+export { MySkills } from './mySkills';
+export { Portfolio } from './portfolio';
+export { Profile } from './profile';

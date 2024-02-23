@@ -1,3 +1,3 @@
-export { Header } from './Header/Header';
-export { Footer } from './Footer/Footer';
-export { ScrollTop } from './others/ScrollTop';
+export { Header } from './Header/header';
+export { Footer } from './Footer/footer';
+export { ScrollTop } from './Others/scrollTop';
