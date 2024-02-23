@@ -1,3 +1,1 @@
-export async function blogsAction() {
-
-}
+export async function blogsAction() {}
