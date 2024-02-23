@@ -5,13 +5,6 @@ import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import ScrollTop from '../components/ScrollTop';
 
-export async function rootLoader() {
-  const response = await fetch('/api/health');
-  const movies = await response.json();
-  console.log(movies);
-  return { movies };
-}
-
 export default function Root() {
   //   const res = load();
 

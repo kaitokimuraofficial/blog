@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
+import About from './routes/About';
+import Blogs from './routes/Blogs';
 import ErrorPage from './error-page';
+import Root from './routes/root';
+import './style/index.css';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { rootLoader } from './routes/root';
-
-import Root from './routes/root';
-import Blogs from './routes/Blogs';
-import About from './routes/About';
-import './style/index.css';
+import { rootLoader, aboutLoader, blogsLoader } from './roader/index';
+import { rootAction, aboutAction, blogsAction } from './action';
 
 const router = createBrowserRouter([
   {
@@ -20,16 +21,19 @@ const router = createBrowserRouter([
         path: '/',
         element: <About />,
         loader: rootLoader,
-      },
-      {
-        path: 'blog',
-        element: <Blogs />,
-        loader: rootLoader,
+        action: rootAction,
       },
       {
         path: 'about',
         element: <About />,
-        loader: rootLoader,
+        loader: aboutLoader,
+        action: aboutAction,
+      },
+      {
+        path: 'blog',
+        element: <Blogs />,
+        loader: blogsLoader,
+        action: blogsAction,
       },
     ],
   },
