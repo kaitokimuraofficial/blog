@@ -1,6 +1,7 @@
+/* Library */
 import styled from 'styled-components';
 
-const MySkills = () => {
+export function MySkills() {
   return (
     <MySkillsOuter>
       <TitleWrapper>
@@ -9,9 +10,7 @@ const MySkills = () => {
       </TitleWrapper>
     </MySkillsOuter>
   );
-};
-
-export default MySkills;
+}
 
 const MySkillsOuter = styled.div`
   display: flex;

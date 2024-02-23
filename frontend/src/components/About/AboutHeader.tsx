@@ -1,6 +1,7 @@
+/* Library */
 import styled from 'styled-components';
 
-const AboutHeader = () => {
+export function AboutHeader() {
   return (
     <AboutHeaderOuter>
       <AboutHeaderWrapper>
@@ -10,9 +11,7 @@ const AboutHeader = () => {
       <Img2 src="images/wave-bg.svg" />
     </AboutHeaderOuter>
   );
-};
-
-export default AboutHeader;
+}
 
 const AboutHeaderOuter = styled.div`
   display: flex;

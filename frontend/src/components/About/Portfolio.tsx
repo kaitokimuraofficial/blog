@@ -1,6 +1,7 @@
+/* Library */
 import styled from 'styled-components';
 
-const Portfolio = () => {
+export function Portfolio() {
   return (
     <PortfolioOuter>
       <TitleWrapper>
@@ -12,9 +13,7 @@ const Portfolio = () => {
       </PortfolioWrapper>
     </PortfolioOuter>
   );
-};
-
-export default Portfolio;
+}
 
 const PortfolioElement = () => {
   return (

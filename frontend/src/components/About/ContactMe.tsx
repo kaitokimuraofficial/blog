@@ -1,6 +1,7 @@
+/* Library */
 import styled from 'styled-components';
 
-const ContactMe = () => {
+export function ContactMe() {
   return (
     <ContactMeOuter>
       <TitleWrapper>
@@ -13,9 +14,7 @@ const ContactMe = () => {
       </FormWrapper>
     </ContactMeOuter>
   );
-};
-
-export default ContactMe;
+}
 
 const ContactMeOuter = styled.div`
   background-color: var(--light-black-background-color);

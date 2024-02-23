@@ -1,6 +1,7 @@
+/* Library */
 import styled from 'styled-components';
 
-const Career = () => {
+export function Career() {
   return (
     <CareerOuter>
       <TitleWrapper>
@@ -10,9 +11,7 @@ const Career = () => {
       <CareerBody />
     </CareerOuter>
   );
-};
-
-export default Career;
+}
 
 const CareerOuter = styled.div`
   display: flex;
@@ -41,7 +40,9 @@ const Title = styled.div`
 const CareerBody = () => {
   return (
     <CareerBodyContent>
-      <Element></Element>
+      <Waseda />
+      <Torotaku />
+      <Qiita />
     </CareerBodyContent>
   );
 };
@@ -100,3 +101,36 @@ const ElementBody = styled.div`
   flex-direction: column;
   padding: 3px;
 `;
+
+const wasedaProp = {
+  title: 'Waseda University',
+  icon: 'images/icons/college.svg',
+  body: 'Leverage agile frameworks to provide a robust \
+  synopsis for high level overviews. Iterative approaches \
+  to corporate strategy foster collaborative thinking to \
+  further the overall value proposition.',
+};
+
+const Waseda = () => Element(wasedaProp);
+
+const torotakuProp = {
+  title: 'Waseda University',
+  icon: 'images/icons/college.svg',
+  body: 'Leverage agile frameworks to provide a robust \
+  synopsis for high level overviews. Iterative approaches \
+  to corporate strategy foster collaborative thinking to \
+  further the overall value proposition.',
+};
+
+const Torotaku = () => Element(torotakuProp);
+
+const qiitaProp = {
+  title: 'Waseda University',
+  icon: 'images/icons/college.svg',
+  body: 'Leverage agile frameworks to provide a robust \
+  synopsis for high level overviews. Iterative approaches \
+  to corporate strategy foster collaborative thinking to \
+  further the overall value proposition.',
+};
+
+const Qiita = () => Element(qiitaProp);

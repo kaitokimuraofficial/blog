@@ -1,6 +1,7 @@
+/* Library */
 import styled from 'styled-components';
 
-const Profile = () => {
+export function Profile() {
   return (
     <ProfileOuter>
       <TitleWrapper>
@@ -13,9 +14,7 @@ const Profile = () => {
       </ProfileWrapper>
     </ProfileOuter>
   );
-};
-
-export default Profile;
+}
 
 const ProfileGreetingOuter = styled.div`
   display: flex;
