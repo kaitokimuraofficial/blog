@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 import { Outlet } from 'react-router-dom';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
 import ScrollTop from '../components/ScrollTop';
 
 export async function rootLoader() {

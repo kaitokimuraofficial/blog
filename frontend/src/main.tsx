@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { rootLoader } from './routes/root';
 
 import Root from './routes/root';
-import Blogs from './routes/blogs';
+import Blogs from './routes/Blogs';
 import About from './routes/About';
 import './style/index.css';
 
