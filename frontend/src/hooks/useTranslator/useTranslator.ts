@@ -1,7 +1,7 @@
 /* Library */
 import { useMemo } from 'react';
 
-import { jp } from '../../locale/jp';
+import { jp } from '@/locale/jp';
 
 interface Params {
   [key: string]: any;

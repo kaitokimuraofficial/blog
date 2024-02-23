@@ -1,0 +1,1 @@
+export { convertToLowerCaseAndRemoveSpaces } from './truncate';

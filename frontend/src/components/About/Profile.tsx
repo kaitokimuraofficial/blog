@@ -1,19 +1,27 @@
 /* Library */
 import styled from 'styled-components';
 
-export function Profile() {
+/* Component */
+import { AboutOuterLayout } from 'cmp/shared';
+
+export function Base() {
   return (
-    <ProfileOuter>
-      <TitleWrapper>
-        <Title id="profile">Profile</Title>
-        <img src="images/marker.svg" height={'20px'} />
-      </TitleWrapper>
-      <ProfileWrapper>
-        <Img src="images/profile.png" />
-        <ProfileGreeting />
-      </ProfileWrapper>
-    </ProfileOuter>
+    <ProfileWrapper>
+      <Img src="images/profile.png" />
+      <ProfileGreeting />
+    </ProfileWrapper>
   );
+}
+
+const props = {
+  content: <Base />,
+  height: 600,
+  pt: 100,
+  title: 'Profile',
+};
+
+export function Profile() {
+  return <AboutOuterLayout {...props} />;
 }
 
 const ProfileGreetingOuter = styled.div`
@@ -56,16 +64,6 @@ const ProfileGreeting = () => {
   );
 };
 
-const ProfileOuter = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 100px;
-  height: 400px;
-  width: 1000px;
-  background-color: var(--light-black-background-color);
-`;
-
 const ProfileWrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -76,21 +74,4 @@ const Img = styled.img`
   height: 200px;
   width: 200px;
   border-radius: 20px;
-`;
-
-const TitleWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 600px;
-`;
-
-const Title = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  vertical-align: middle;
-  font-weight: bold;
-  color: var(--white);
-  position: relative;
 `;

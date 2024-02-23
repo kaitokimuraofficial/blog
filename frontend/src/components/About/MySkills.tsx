@@ -1,37 +1,19 @@
 /* Library */
 import styled from 'styled-components';
 
+/* Component */
+import { AboutOuterLayout } from 'cmp/shared';
+
+const SkillLists = () => {
+  return <p>Hello World</p>;
+};
+
+const props = {
+  content: <SkillLists />,
+  height: 400,
+  title: 'My Skills',
+};
+
 export function MySkills() {
-  return (
-    <MySkillsOuter>
-      <TitleWrapper>
-        <Title id="myskills">My Skills</Title>
-        <img src="images/marker.svg" height={'20px'} />
-      </TitleWrapper>
-    </MySkillsOuter>
-  );
+  return <AboutOuterLayout {...props} />;
 }
-
-const MySkillsOuter = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 200px;
-  background-color: var(--light-black-background-color);
-`;
-const TitleWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 600px;
-`;
-
-const Title = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  vertical-align: middle;
-  font-weight: bold;
-  color: var(--white);
-  position: relative;
-`;

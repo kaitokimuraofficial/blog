@@ -1,46 +1,27 @@
 /* Library */
 import styled from 'styled-components';
 
-export function ContactMe() {
+/* Component */
+import { AboutOuterLayout } from 'cmp/shared';
+
+const Form = () => {
   return (
-    <ContactMeOuter>
-      <TitleWrapper>
-        <Title id="contactme">Contact Me!</Title>
-        <img src="images/marker.svg" height={'20px'} />
-      </TitleWrapper>
-      <FormWrapper>
-        <FormComponent />
-        <FormSide />
-      </FormWrapper>
-    </ContactMeOuter>
+    <FormWrapper>
+      <FormComponent />
+      <FormSide />
+    </FormWrapper>
   );
+};
+
+const props = {
+  content: <Form />,
+  height: 400,
+  title: 'Contact Me!',
+};
+
+export function ContactMe() {
+  return <AboutOuterLayout {...props} />;
 }
-
-const ContactMeOuter = styled.div`
-  background-color: var(--light-black-background-color);
-  display: flex;
-  flex-direction: column;
-  height: 400px;
-  width: 1000px;
-  align-items: center;
-`;
-
-const TitleWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 600px;
-`;
-
-const Title = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  vertical-align: middle;
-  font-weight: bold;
-  color: var(--white);
-  position: relative;
-`;
 
 const FormWrapper = styled.div`
   display: flex;

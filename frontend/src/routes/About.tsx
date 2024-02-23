@@ -10,7 +10,7 @@ import {
   MySkills,
   Portfolio,
   Profile,
-} from '../components/About';
+} from 'cmp/About';
 
 export async function action() {}
 

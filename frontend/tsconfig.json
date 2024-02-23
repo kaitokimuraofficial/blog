@@ -19,7 +19,13 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "cmp/*": ["./src/components/*"],
+      "img/*": ["./images/*"]
+    }
   },
   "include": ["src", "images"],
   "references": [{ "path": "./tsconfig.node.json" }]

@@ -1,19 +1,33 @@
 /* Library */
 import styled from 'styled-components';
 
-export function Portfolio() {
+/* Component */
+import { AboutOuterLayout } from 'cmp/shared';
+
+export function Lists() {
   return (
-    <PortfolioOuter>
-      <TitleWrapper>
-        <Title id="portfolio">Portfolio</Title>
-        <img src="images/marker.svg" height={'20px'} />
-      </TitleWrapper>
-      <PortfolioWrapper>
-        <PortfolioElement />
-      </PortfolioWrapper>
-    </PortfolioOuter>
+    <PortfolioWrapper>
+      <PortfolioElement />
+    </PortfolioWrapper>
   );
 }
+
+const props = {
+  content: <Lists />,
+  height: 600,
+  title: 'Career',
+};
+
+export function Portfolio() {
+  return <AboutOuterLayout {...props} />;
+}
+
+const PortfolioWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+`;
 
 const PortfolioElement = () => {
   return (
@@ -47,35 +61,4 @@ const PortfolioElementHeader = styled.div`
 const PortfolioElementBody = styled.div`
   font-weight: bold;
   color: var(--white);
-`;
-
-const PortfolioOuter = styled.div`
-  background-color: var(--light-black-background-color);
-  display: flex;
-  flex-direction: column;
-  height: 400px;
-  width: 1000px;
-`;
-
-const TitleWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
-
-const Title = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  vertical-align: middle;
-  font-weight: bold;
-  color: var(--white);
-  position: relative;
-`;
-
-const PortfolioWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
 `;

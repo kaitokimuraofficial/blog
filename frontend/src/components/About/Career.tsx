@@ -1,41 +1,8 @@
 /* Library */
 import styled from 'styled-components';
 
-export function Career() {
-  return (
-    <CareerOuter>
-      <TitleWrapper>
-        <Title id="career">Career</Title>
-        <img src="images/marker.svg" height={'20px'} />
-      </TitleWrapper>
-      <CareerBody />
-    </CareerOuter>
-  );
-}
-
-const CareerOuter = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 200px;
-  background-color: var(--light-black-background-color);
-`;
-const TitleWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 600px;
-`;
-
-const Title = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  vertical-align: middle;
-  font-weight: bold;
-  color: var(--white);
-  position: relative;
-`;
+/* Component */
+import { AboutOuterLayout } from 'cmp/shared';
 
 const CareerBody = () => {
   return (
@@ -46,6 +13,16 @@ const CareerBody = () => {
     </CareerBodyContent>
   );
 };
+
+const props = {
+  content: <CareerBody />,
+  height: 600,
+  title: 'Career',
+};
+
+export function Career() {
+  return <AboutOuterLayout {...props} />;
+}
 
 const CareerBodyContent = styled.div`
   display: flex;

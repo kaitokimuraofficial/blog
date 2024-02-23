@@ -1,6 +1,9 @@
 /* Library */
 import styled from 'styled-components';
 
+/* Component */
+import { AboutOuterLayout } from 'cmp/shared';
+
 export function AboutHeader() {
   return (
     <AboutHeaderOuter>
@@ -14,6 +17,7 @@ export function AboutHeader() {
 }
 
 const AboutHeaderOuter = styled.div`
+  background-color: var(--black-background-color);
   display: flex;
   flex-direction: column;
   height: 300px;
@@ -28,7 +32,6 @@ const AboutHeaderWrapper = styled.div`
 `;
 
 const Img = styled.img`
-  background-color: var(--black-background-color);
   height: 300px;
   width: 300px;
 `;
