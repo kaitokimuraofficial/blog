@@ -2,7 +2,6 @@
 import styled from 'styled-components';
 
 /* Component */
-import { AboutOuterLayout } from 'cmp/shared';
 
 export function AboutHeader() {
   return (
@@ -21,10 +20,11 @@ const AboutHeaderOuter = styled.div`
   display: flex;
   flex-direction: column;
   height: 300px;
-  width: 1000px;
+  width: 100%;
 `;
 
 const AboutHeaderWrapper = styled.div`
+  align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -44,25 +44,16 @@ const Img2 = styled.img`
 const Greeting = () => {
   return (
     <GreetingOuter>
-      <H2>Hello World</H2>
-      <H1>I'm Kaito Kimura</H1>
-      <H2>College Student and Web Engineer</H2>
+      <h3>Hello World</h3>
+      <h4>I'm Kaito Kimura</h4>
+      <h4>College Student and Web Engineer</h4>
     </GreetingOuter>
   );
 };
 
 const GreetingOuter = styled.div`
-  background-color: var(--black-background-color);
+  align-items: start;
   display: flex;
+  padding-left: 2rem;
   flex-direction: column;
-`;
-
-const H1 = styled.h1`
-  font-size: 35px;
-  font-weight: bold;
-`;
-
-const H2 = styled.h2`
-  font-size: 20px;
-  font-weight: 400;
 `;

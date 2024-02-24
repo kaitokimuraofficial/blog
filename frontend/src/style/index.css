@@ -1,29 +1,71 @@
-:root {
-  --white: #f4f6f8;
-  --gray: #808080;
-  --indigo: #1f242e;
-  --light-indigo: #393f4c;
+@import url('font.css');
 
-  --black-background-color: var(--indigo);
-  --light-black-background-color: var(--light-indigo);
-  --light-background-color: var(--white);
+:root {
+  --bs-blue: #0d6efd;
+  --bs-indigo: #1f242e;
+  --bs-light-indigo: #393f4c;
+  --bs-purple: #6f42c1;
+  --bs-pink: #d63384;
+  --bs-red: #dc3545;
+  --bs-orange: #fd7e14;
+  --bs-yellow: #ffc107;
+  --bs-green: #198754;
+  --bs-teal: #20c997;
+  --bs-cyan: #0dcaf0;
+  --bs-white: #fff;
+  --bs-gray: #808080;
+  --bs-gray-dark: #343a40;
+  --bs-white: #f4f6f8;
+  --bs-primary: #f6e05e;
+  --bs-secondary: #343a40;
+  --bs-success: #37bc9b;
+  --bs-info: #3bafda;
+  --bs-warning: #f6bb42;
+  --bs-danger: #e9573f;
+  --bs-light: #f4f6f8;
+  --bs-dark: #212529;
+
+  --black-background-color: var(--bs-indigo);
+  --light-black-background-color: var(--bs-light-indigo);
+  --light-background-color: var(--bs-white);
 
   --font-sawarabi-gothic: 'Sawarabi Gothic', sans-serif;
 
   font-family: var(--font-sawarabi-gothic);
   line-height: 1.5;
   font-weight: 400;
-  display: flex;
-  justify-content: center;
+  display: block;
+  margin: 0 auto;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: var(--bs-white);
   background-color: var(--light-black-background-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: visible;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
 }
 
 a {
@@ -44,11 +86,6 @@ body {
   width: 1000px;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -63,6 +100,7 @@ button {
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -79,8 +117,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
-
-.bg-light {
-  background-color: #1f242e !important;
 }
