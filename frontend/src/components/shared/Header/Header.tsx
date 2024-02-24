@@ -23,25 +23,34 @@ export function Header() {
 }
 
 const Outer = styled.div`
+  align-items: center;
+  background-color: var(--black-background-color);
   display: flex;
   flex-direction: row;
-  align-items: center;
+  height: 70px;
   justify-content: space-between;
-  height: 40px;
-  width: 1000px;
-  background-color: var(--black-background-color);
+  padding: 30px 0px;
+  width: 100%;
+
+  @media (max-width: 600px) {
+    height: 100px;
+  }
 `;
 
-const Title = styled.div`
-  font-size: 30px;
+const Title = styled.h1`
+  text-align: center;
+  padding-left: 2rem;
   font-weight: bold;
+  line-height: 100%;
 `;
 
 const Right = styled.div`
   display: flex;
+  flex: 1;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
+  gap: 1rem;
 `;
 
 const Column = styled.div<{ align?: string; gap?: number }>`
@@ -54,9 +63,13 @@ const Column = styled.div<{ align?: string; gap?: number }>`
 `;
 
 const ColumnLeft = styled(Column)`
-  justify-content: space-around;
+  justify-content: space-between;
+  gap: 2rem;
 `;
 
 const ColumnRight = styled(Column)`
-  justify-content: flex-end;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  margin-right: 1rem;
 `;

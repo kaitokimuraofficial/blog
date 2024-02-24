@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 type Props = {
   href?: string;
-  target: 'blank' | 'self';
+  target: '_blank' | '_top';
   content: JSX.Element;
 };
 
@@ -20,16 +20,25 @@ export function ImgComponent(src: string) {
 }
 
 const Img = styled.img`
-  height: 25px;
-  width: 25px;
+  height: 3.2rem;
+  width: 3.2rem;
+
+  @media (max-width: 600px) {
+    height: 6.4rem;
+    width: 6.4rem;
+  }
 `;
 
 const A = styled.a`
   color: #808080;
   font-weight: bold;
-
+  font-size: 1.5rem;
   :hover {
-    color: white;
+    color: var(--bs-white);
     cursor: pointer;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 2rem;
   }
 `;
