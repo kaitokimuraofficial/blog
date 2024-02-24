@@ -5,29 +5,18 @@ import styled from 'styled-components';
 import { AboutOuterLayout } from 'cmp/shared';
 
 export function Lists() {
-  return (
-    <PortfolioWrapper>
-      <PortfolioElement />
-    </PortfolioWrapper>
-  );
+  return <PortfolioElement />;
 }
 
 const props = {
   content: <Lists />,
   height: 600,
-  title: 'Career',
+  title: 'Portfolio',
 };
 
 export function Portfolio() {
   return <AboutOuterLayout {...props} />;
 }
-
-const PortfolioWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-`;
 
 const PortfolioElement = () => {
   return (

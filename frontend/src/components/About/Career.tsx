@@ -60,7 +60,6 @@ const ElementOuter = styled.div`
   flex-direction: column;
   gap: 2.5rem;
   justify-content: space-between;
-  
 `;
 
 const ElementHeader = styled.div`

@@ -2,15 +2,64 @@
 import styled from 'styled-components';
 
 /* Component */
-import { AboutOuterLayout } from 'cmp/shared';
+import { AboutOuterLayout, SkillsOuterLayout } from 'cmp/shared';
 
 const SkillLists = () => {
-  return <p>Hello World</p>;
+  return (
+    <SkillOuter>
+      <Ruby />
+      <Python />
+      <TypeScript />
+      <Golang />
+    </SkillOuter>
+  );
 };
+
+const SkillOuter = styled.div`
+  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 20rem 20rem;
+  grid-row: auto auto;
+  grid-column-gap: 4.5rem;
+  grid-row-gap: 4.5rem;
+  justify-items: center;
+`;
+
+const rubyProp = {
+  title: 'Ruby',
+  content: 'Qiitaにてrubyでの開発経験があります。',
+  icon: 'images/icons/ruby.svg',
+};
+
+const Ruby = () => SkillsOuterLayout(rubyProp);
+
+const pythonProp = {
+  title: 'Python',
+  content: '競技プログラミングではPythonを使用しています',
+  icon: 'img/icons/python.svg',
+};
+
+const Python = () => SkillsOuterLayout(pythonProp);
+
+const typeScriptProp = {
+  title: 'TypeScript',
+  content: 'このブログのフロントもTypeScriptで書きました',
+  icon: 'img/icons/typescript.svg',
+};
+
+const TypeScript = () => SkillsOuterLayout(typeScriptProp);
+
+const golangProp = {
+  title: 'Golang',
+  content: 'このブログもGo言語で書きました',
+  icon: 'images/icons/golang.svg',
+};
+
+const Golang = () => SkillsOuterLayout(golangProp);
 
 const props = {
   content: <SkillLists />,
-  height: 400,
+  height: 600,
   title: 'My Skills',
 };
 
