@@ -6,16 +6,27 @@ import { AboutOuterLayout } from 'cmp/shared';
 
 export function Base() {
   return (
-    <ProfileWrapper>
+    <>
       <Img src="images/profile.png" />
       <ProfileGreeting />
-    </ProfileWrapper>
+    </>
   );
 }
 
+const Img = styled.img`
+  height: 200px;
+  width: 200px;
+  border-radius: 20px;
+
+  @media (max-width: 600px) {
+    height: 100px;
+    width: 100px;
+  }
+`;
+
 const props = {
   content: <Base />,
-  height: 600,
+  height: 400,
   pt: 100,
   title: 'Profile',
 };
@@ -43,7 +54,7 @@ const ProfileGreetingBody = styled.div`
   justify-content: space-between;
 `;
 
-const ProfileGreetingBodyElement = styled.p`
+const ProfileGreetingBodyElement = styled.h6`
   color: var(--white);
 `;
 
@@ -53,25 +64,9 @@ const ProfileGreeting = () => {
       <ProfileGreetingTitle>I'm Kaito Kimura</ProfileGreetingTitle>
       <ProfileGreetingBody>
         <ProfileGreetingBodyElement>
-          I am passionate about UI/UX design and Web Design. I am a skilled
-          front-end developer and master of graphic design tools such as
-          Photoshop and Sketch. I am a quick learner and a team worker that gets
-          the job done. I can easily capitalize on low hanging fruits and
-          quickly maximize timely deliverables for real-time schemas.
+          千葉県生まれ。5才の頃に札幌に引越しする。中学2年生のとき東京に再度引越し、今も東京ライフを満喫している。一浪を経て、早稲田大学でCSを勉強中。友達から勧めれた競技プログラミングをきっかけにプログラミングの勉強を本格的に始める。転機は2023年の夏休み。参加したハッカソンにて本格的にエンジニアとしてキャリアを歩むことを決め、暇さえあればパソコンで何かを作ってる。趣味はスポーツ観戦(バスケ、アメフト)、サイクリング、音楽、英語、YouTube、散歩。
         </ProfileGreetingBodyElement>
       </ProfileGreetingBody>
     </ProfileGreetingOuter>
   );
 };
-
-const ProfileWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-`;
-
-const Img = styled.img`
-  height: 200px;
-  width: 200px;
-  border-radius: 20px;
-`;

@@ -6,11 +6,12 @@ import { convertToLowerCaseAndRemoveSpaces } from '@/util';
 type Props = {
   content: JSX.Element;
   height: number;
+  jc?: string;
   pt?: number;
   title: string;
 };
 
-export function AboutOuterLayout({ content, height, pt, title }: Props) {
+export function AboutOuterLayout({ content, height, jc, pt, title }: Props) {
   const id = convertToLowerCaseAndRemoveSpaces(title);
   return (
     <AboutHeaderOuter height={height} pt={pt}>
@@ -18,7 +19,7 @@ export function AboutOuterLayout({ content, height, pt, title }: Props) {
         <Title id={id}>{title}</Title>
         <img src="images/marker.svg" height={'20px'} />
       </TitleWrapper>
-      {content}
+      <BodyWrapper jc={jc}>{content}</BodyWrapper>
     </AboutHeaderOuter>
   );
 }
@@ -30,14 +31,15 @@ const AboutHeaderOuter = styled.div<{ height: number; pt?: number }>`
   flex-direction: column;
   height: ${({ height }) => `${height}px`};
   padding-top: ${({ pt }) => `${pt}px`};
-  width: 1000px;
+  width: 100%;
 `;
 
 const TitleWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 600px;
+  width: 60%;
+  margin-bottom: 2rem;
 `;
 
 const Title = styled.div`
@@ -48,4 +50,13 @@ const Title = styled.div`
   justify-content: center;
   position: relative;
   vertical-align: middle;
+`;
+
+const BodyWrapper = styled.div<{ gap?: number; jc?: string }>`
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: ${({ gap }) => (gap ? `${{ gap }}rem` : '2rem')};
+  justify-content: ${({ jc }) => (jc ? jc : 'space-between')};
+  width: 80%;
 `;

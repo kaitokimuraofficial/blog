@@ -20,27 +20,10 @@ export function Footer() {
   );
 }
 
-const Navigation = {
-  title: 'Navigation',
-  lists: ['About', 'Blogs'],
-};
-
-const Contact = {
-  title: 'Contact',
-  lists: ['GitHub', 'LinkedIn', 'X', 'Email'],
-};
-
-const FooterContact = () => FooterNavigationElement(Contact);
-const FooterNavigation = () => FooterNavigationElement(Navigation);
-
-const License = () => {
-  return <LicenseWrapper>Made by @kaitokimuraofficial</LicenseWrapper>;
-};
-
 const FooterOuter = styled.div`
   display: flex;
   flex-direction: column;
-  width: 1000px;
+  width: 100%;
   background-color: var(--light-black-background-color);
 `;
 
@@ -58,3 +41,20 @@ const LicenseWrapper = styled.div`
   height: 20px;
   justify-content: center;
 `;
+
+const Navigation = {
+  title: 'Navigation',
+  lists: ['About', 'Blogs'],
+};
+
+const Contact = {
+  title: 'Contact',
+  lists: ['GitHub', 'LinkedIn', 'X', 'Email'],
+};
+
+const FooterContact = () => FooterNavigationElement(Contact);
+const FooterNavigation = () => FooterNavigationElement(Navigation);
+
+const License = () => {
+  return <LicenseWrapper>Made by @kaitokimuraofficial</LicenseWrapper>;
+};

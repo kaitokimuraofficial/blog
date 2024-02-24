@@ -6,8 +6,6 @@ import { Outlet } from 'react-router-dom';
 import { Header, Footer, ScrollTop } from 'cmp/shared';
 
 export function Root() {
-  //   const res = load();
-
   return (
     <ContentContainer>
       <Header />
@@ -19,8 +17,9 @@ export function Root() {
 }
 
 const ContentContainer = styled.div`
+  align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 1000px;
+  justify-content: start;
+  width: 100%;
 `;
