@@ -3,6 +3,7 @@ package main
 import (
 	"blog/controller/health"
 	"blog/controller/home"
+	"blog/middleware"
 	"context"
 	"net/http"
 
@@ -15,6 +16,6 @@ func NewMux(ctx context.Context) (http.Handler, error) {
 	mux.Use(mid.Logger)
 
 	mux.Get("/api", home.GetHome)
-	mux.Get("/api/health", health.GetHealth)
+	mux.Get("/api/health", middleware.AddHeader(health.GetHealth))
 	return mux, nil
 }
