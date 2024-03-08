@@ -1,4 +1,4 @@
-package controller
+package health
 
 import (
 	"encoding/json"
@@ -6,22 +6,19 @@ import (
 )
 
 type Hello struct {
-	Greeting      string `json:"greeting"`
+	Greeting string `json:"greeting"`
 }
 
-func getHealth(w http.ResponseWriter, r *http.Request) error {
+func GetHealth(w http.ResponseWriter, r *http.Request) {
 	greeting := Hello{
-		Greeting:  "hello world",
+		Greeting: "hello world",
 	}
 
 	result, err := json.Marshal(greeting)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
-		return err
 	}
 	_, err = w.Write(result)
 	if err != nil {
-		return err
 	}
-	return nil
 }
