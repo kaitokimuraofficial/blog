@@ -25,10 +25,12 @@ const SkillOuter = styled.div`
   justify-items: center;
 `;
 
+const key = import.meta.env.ENV_IMAGE_URL
+
 const rubyProp = {
   title: 'Ruby',
   content: 'Qiitaにてrubyでの開発経験があります。',
-  icon: 'images/icons/ruby.svg',
+  icon: `${key}/images/icons/ruby.svg`,
 };
 
 const Ruby = () => SkillsOuterLayout(rubyProp);
@@ -36,7 +38,7 @@ const Ruby = () => SkillsOuterLayout(rubyProp);
 const pythonProp = {
   title: 'Python',
   content: '競技プログラミングではPythonを使用しています',
-  icon: 'img/icons/python.svg',
+  icon: `${key}/images/icons/python.svg`,
 };
 
 const Python = () => SkillsOuterLayout(pythonProp);
@@ -44,7 +46,7 @@ const Python = () => SkillsOuterLayout(pythonProp);
 const typeScriptProp = {
   title: 'TypeScript',
   content: 'このブログのフロントもTypeScriptで書きました',
-  icon: 'img/icons/typescript.svg',
+  icon: `${key}/images/icons/typescript.svg`,
 };
 
 const TypeScript = () => SkillsOuterLayout(typeScriptProp);
@@ -52,7 +54,7 @@ const TypeScript = () => SkillsOuterLayout(typeScriptProp);
 const golangProp = {
   title: 'Golang',
   content: 'このブログもGo言語で書きました',
-  icon: 'images/icons/golang.svg',
+  icon: `${key}/images/icons/golang.svg`,
 };
 
 const Golang = () => SkillsOuterLayout(golangProp);

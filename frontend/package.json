@@ -6,6 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:dev": "vite build --mode development",
+    "build:prod": "vite preview --mode production",
+    "b": "NODE_ENV=production vite preview --mode production",
     "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
     "format": "prettier . --write",
     "preview": "vite preview"

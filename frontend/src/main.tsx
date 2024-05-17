@@ -8,8 +8,8 @@ import { About, Blogs, Root } from './routes';
 import ErrorPage from './error-page';
 import './style/index.css';
 
-import { rootAction, aboutAction, blogsAction } from './action';
-import { rootLoader, aboutLoader, blogsLoader } from './loader';
+// import { rootAction, aboutAction, blogsAction } from './action';
+// import { rootLoader, aboutLoader, blogsLoader } from './loader';
 
 const router = createBrowserRouter([
   {
@@ -20,20 +20,20 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <About />,
-        loader: rootLoader,
-        action: rootAction,
+        // loader: rootLoader,
+        // action: rootAction,
       },
       {
         path: 'about',
         element: <About />,
-        loader: aboutLoader,
-        action: aboutAction,
+        // loader: aboutLoader,
+        // action: aboutAction,
       },
       {
         path: 'blog',
         element: <Blogs />,
-        loader: blogsLoader,
-        action: blogsAction,
+        // loader: blogsLoader,
+        // action: blogsAction,
       },
     ],
   },

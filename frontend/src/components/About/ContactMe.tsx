@@ -6,10 +6,10 @@ import { AboutOuterLayout } from 'cmp/shared';
 
 const Form = () => {
   return (
-    <FormWrapper>
+    <>
       <FormComponent />
       <FormSide />
-    </FormWrapper>
+    </>
   );
 };
 
@@ -22,14 +22,6 @@ const props = {
 export function ContactMe() {
   return <AboutOuterLayout {...props} />;
 }
-
-const FormWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  width: 600px;
-`;
 
 const FormComponent = () => {
   return (

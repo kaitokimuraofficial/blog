@@ -1,6 +1,6 @@
 /* Library */
 import styled from 'styled-components';
-import { useLoaderData } from 'react-router';
+// import { useLoaderData } from 'react-router';
 
 /* Component */
 import {
@@ -15,8 +15,8 @@ import {
 export async function action() {}
 
 export function About() {
-  const data = useLoaderData() as any;
-  console.log(data.movies.greeting);
+  // const data = useLoaderData() as a
+  // console.log(data.movies.greeting);
 
   return (
     <AboutOuter>

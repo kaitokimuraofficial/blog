@@ -13,11 +13,12 @@ type Props = {
 
 export function AboutOuterLayout({ content, height, jc, pt, title }: Props) {
   const id = convertToLowerCaseAndRemoveSpaces(title);
+  const key = import.meta.env.ENV_IMAGE_URL
   return (
     <AboutHeaderOuter height={height} pt={pt}>
       <TitleWrapper>
         <Title id={id}>{title}</Title>
-        <img src="images/marker.svg" height={'20px'} />
+        <img src={`${key}/images/marker.svg`} height={'20px'} />
       </TitleWrapper>
       <BodyWrapper jc={jc}>{content}</BodyWrapper>
     </AboutHeaderOuter>

@@ -4,13 +4,15 @@ import styled from 'styled-components';
 /* Component */
 
 export function AboutHeader() {
+  const key = import.meta.env.ENV_IMAGE_URL
+
   return (
     <AboutHeaderOuter>
       <AboutHeaderWrapper>
         <Greeting />
-        <Img src="images/man-using-pc.svg" />
+        <Img src={`${key}/images/man-using-pc.svg`} />
       </AboutHeaderWrapper>
-      <Img2 src="images/wave-bg.svg" />
+      <Img2 src={`${key}/images/wave-bg.svg`} />
     </AboutHeaderOuter>
   );
 }
