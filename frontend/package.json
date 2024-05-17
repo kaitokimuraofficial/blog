@@ -4,14 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
     "build": "tsc && vite build",
     "build:dev": "vite build --mode development",
-    "build:prod": "vite preview --mode production",
-    "b": "NODE_ENV=production vite preview --mode production",
-    "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
+    "build:prod": "NODE_ENV=production vite build --mode production",
+    "dev": "vite",
     "format": "prettier . --write",
-    "preview": "vite preview"
+    "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "preview:prod": "NODE_ENV=production vite preview --mode production"
   },
   "dependencies": {
     "react": "^18.2.0",

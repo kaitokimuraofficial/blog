@@ -4,6 +4,14 @@ import path from 'path';
 
 export default defineConfig({
   envPrefix: 'ENV_',
+  plugins: [react()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+      cmp: path.resolve(__dirname, './src/components'),
+      img: path.resolve(__dirname, 'src/images'),
+    },
+  },
   server: {
     host: true,
     port: 3000,
@@ -12,14 +20,6 @@ export default defineConfig({
         target: 'http://blog_backend:8080',
         changeOrigin: true,
       },
-    },
-  },
-  plugins: [react()],
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
-      cmp: path.resolve(__dirname, './src/components'),
-      img: path.resolve(__dirname, 'src/images'),
     },
   },
 });

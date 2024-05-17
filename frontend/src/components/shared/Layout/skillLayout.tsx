@@ -11,7 +11,7 @@ export function SkillsOuterLayout({ content, icon, title }: Props) {
   return (
     <SkillsOuter>
       <TitleWrapper>
-        <img src={icon} height='3rem' width='3rem' />
+        <img src={icon} height="3rem" width="3rem" />
         <H3>{title}</H3>
       </TitleWrapper>
       <H4>{content}</H4>

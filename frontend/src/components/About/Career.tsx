@@ -87,7 +87,7 @@ const ElementBody = styled.div`
   padding: 3px;
 `;
 
-const key = import.meta.env.ENV_IMAGE_URL
+const key = import.meta.env.ENV_IMAGE_URL;
 
 const highSchoolProp = {
   title: '東京都立西高等学校',

@@ -25,7 +25,7 @@ const SkillOuter = styled.div`
   justify-items: center;
 `;
 
-const key = import.meta.env.ENV_IMAGE_URL
+const key = import.meta.env.ENV_IMAGE_URL;
 
 const rubyProp = {
   title: 'Ruby',

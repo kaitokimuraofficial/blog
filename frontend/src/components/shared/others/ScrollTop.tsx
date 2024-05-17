@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 export function ScrollTop() {
-  const key = import.meta.env.ENV_IMAGE_URL
+  const key = import.meta.env.ENV_IMAGE_URL;
   return (
     <ImgOuter href="#root">
       <Img src={`${key}/images/icons/arrow-up.svg`} />

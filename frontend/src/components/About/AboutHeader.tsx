@@ -4,7 +4,7 @@ import styled from 'styled-components';
 /* Component */
 
 export function AboutHeader() {
-  const key = import.meta.env.ENV_IMAGE_URL
+  const key = import.meta.env.ENV_IMAGE_URL;
 
   return (
     <AboutHeaderOuter>

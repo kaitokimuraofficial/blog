@@ -5,7 +5,7 @@ import { useLoaderData } from 'react-router';
 export function Blogs() {
   const data = useLoaderData() as any;
   console.log(data);
-  console.log(data.movies.greeting)
+  console.log(data.movies.greeting);
 
   return <P>{data.movies.greeting}</P>;
 }

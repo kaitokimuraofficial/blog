@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { AboutOuterLayout } from 'cmp/shared';
 
 export function Base() {
-  const key = import.meta.env.ENV_IMAGE_URL
+  const key = import.meta.env.ENV_IMAGE_URL;
 
   return (
     <>
