@@ -14,7 +14,6 @@ export default defineConfig(({ command, mode }) => {
     resolve: {
       alias: {
         '@': path.resolve(__dirname, './src'),
-        cmp: path.resolve(__dirname, './src/components'),
         img: path.resolve(__dirname, 'src/images'),
       },
     },

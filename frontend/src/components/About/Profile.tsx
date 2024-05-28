@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 /* Component */
-import { AboutOuterLayout } from 'cmp/shared';
+import { AboutOuterLayout } from '../shared';
 
 export function Base() {
   const key = import.meta.env.ENV_IMAGE_URL;

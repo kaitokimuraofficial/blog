@@ -1,6 +1,6 @@
 /* Library */
 import styled from 'styled-components';
-import { useLoaderData } from 'react-router';
+import { useLoaderData } from 'react-router-dom';
 
 /* Component */
 import { ArticleList, BlogHeader } from '@/components/Blog';
@@ -15,8 +15,6 @@ type ArticleProp = {
 
 export function Blogs() {
   const articles = useLoaderData() as ArticleProp[];
-
-  console.log(articles);
 
   return (
     <BlogOuter>

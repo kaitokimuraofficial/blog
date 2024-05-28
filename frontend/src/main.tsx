@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 /* Component */
 import { About, Blogs, Root } from './routes';
+
 import ErrorPage from './error-page';
 import './style/index.css';
 

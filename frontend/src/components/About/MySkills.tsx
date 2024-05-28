@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 /* Component */
-import { AboutOuterLayout, SkillsOuterLayout } from 'cmp/shared';
+import { AboutOuterLayout, SkillsOuterLayout } from '../shared';
 
 const SkillLists = () => {
   return (

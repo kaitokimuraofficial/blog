@@ -10,9 +10,7 @@ import {
   MySkills,
   Portfolio,
   Profile,
-} from 'cmp/About';
-
-export async function action() {}
+} from '@/components/About';
 
 export function About() {
   // const data = useLoaderData() as a
