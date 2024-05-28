@@ -2,15 +2,18 @@
 import styled from 'styled-components';
 import { useLoaderData } from 'react-router';
 
-export function Blogs() {
-  const data = useLoaderData() as any;
-  console.log(data);
-  console.log(data.movies.greeting);
+/* Component */
+import { ArticleList, BlogHeader } from '@/components/Blog';
 
-  return <P>{data.movies.greeting}</P>;
+export function Blogs() {
+  const articles = useLoaderData() as any;
+
+  return (
+    <BlogOuter>
+      <BlogHeader />
+      <ArticleList articles={articles} />
+    </BlogOuter>
+  );
 }
 
-const P = styled.p`
-  height: 100px;
-  color: blue;
-`;
+const BlogOuter = styled.div``;

@@ -23,7 +23,7 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "ES2020",
-    "useDefineForClassFields": true,
+    "useDefineForClassFields": true
   },
   "include": ["src", "images", "vite.config.js"]
 }
