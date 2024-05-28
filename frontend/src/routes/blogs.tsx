@@ -16,7 +16,7 @@ type ArticleProp = {
 export function Blogs() {
   const articles = useLoaderData() as ArticleProp[];
 
-  console.log(articles)
+  console.log(articles);
 
   return (
     <BlogOuter>

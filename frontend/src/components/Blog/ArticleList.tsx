@@ -10,7 +10,6 @@ type Props = {
 };
 
 export function ArticleList({ articles }: Props) {
-
   return (
     <ol>
       {articles.map((article, index) => (
