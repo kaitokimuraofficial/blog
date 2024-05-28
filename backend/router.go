@@ -1,6 +1,7 @@
 package main
 
 import (
+	"blog/controller/articles"
 	"blog/controller/health"
 	"blog/controller/home"
 	"blog/middleware"
@@ -17,5 +18,6 @@ func NewMux(ctx context.Context) (http.Handler, error) {
 
 	mux.Get("/api", home.GetHome)
 	mux.Get("/api/health", middleware.AddHeader(health.GetHealth))
+	mux.Get("/api/articles", middleware.AddHeader(articles.GetArticles))
 	return mux, nil
 }

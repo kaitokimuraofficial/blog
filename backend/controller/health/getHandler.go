@@ -18,7 +18,5 @@ func GetHealth(w http.ResponseWriter, _ *http.Request) {
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 	}
-	_, err = w.Write(result)
-	if err != nil {
-	}
+	_, _ = w.Write(result)
 }
