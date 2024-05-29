@@ -25,7 +25,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: artifact
-          path: ./frontend/dist/*
+          path: ./frontend/dist
 
   deploy:
     needs: build
@@ -34,9 +34,9 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: artifact
+
       - id: ip
         uses: haythem/public-ip@v1.3
-      - uses: actions/checkout@v4
 
       - name: AWS CLI install
         run: |
@@ -50,12 +50,12 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-northeast-1
+
       - name: Deploy
         run: |
-
           aws ec2 authorize-security-group-ingress --group-id ${{ secrets.EC2_SECURITY_GROUP_ID }} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32
           echo "${{ secrets.PRIVATE_KEY }}" > private_key
           chmod 600 private_key
-          scp -o StrictHostKeyChecking=no -i private_key artifact/assets ${{ secrets.USER_NAME }}@${{ secrets.HOST_NAME }}:/var/www/html/assets
-          scp -o StrictHostKeyChecking=no -i private_key artifact/index.html ${{ secrets.USER_NAME }}@${{ secrets.HOST_NAME }}:/var/www/html/index.html
+          scp -o StrictHostKeyChecking=no -i private_key index.html ${{ secrets.USER_NAME }}@${{ secrets.HOST_NAME }}:/var/www/html
+          scp -o StrictHostKeyChecking=no -i private_key -r assets ${{ secrets.USER_NAME }}@${{ secrets.HOST_NAME }}:/var/www/html
           aws ec2 revoke-security-group-ingress --group-id ${{ secrets.EC2_SECURITY_GROUP_ID }} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32
