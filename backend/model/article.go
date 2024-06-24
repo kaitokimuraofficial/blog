@@ -7,7 +7,7 @@ import (
 type ArticleID int64
 
 type Article struct {
-    ID        ArticleID `json:"article_id" db:"ArticleId"`
+    ID        ArticleID `json:"articleId" db:"ArticleId"`
     Title     string    `json:"title" db:"title"`
     Body      string    `json:"body" db:"body"`
     CreatedAt time.Time `json:"created" db:"createdAt"`
