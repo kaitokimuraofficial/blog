@@ -1,5 +1,5 @@
-import { convertToLowerCaseAndRemoveSpaces } from "./truncate";
+import { Truncate } from './truncate';
 
-test('trucate input', () => {
-    expect(convertToLowerCaseAndRemoveSpaces("hello")).toBe("hello");
+test('Truncate input', () => {
+  expect(Truncate('hello')).toBe('hello');
 });
