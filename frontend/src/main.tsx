@@ -3,13 +3,16 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 /* Component */
-import { About, Blogs, Root } from './routes';
+import { About } from './routes/about';
+import { Blogs } from './routes/blogs';
+import { Root } from './routes/root';
+import { Article } from './routes/article';
 
 import ErrorPage from './error-page';
 import './style/index.css';
 
 import { rootAction, aboutAction, blogsAction } from './action';
-import { rootLoader, aboutLoader, blogsLoader } from './loader';
+import { rootLoader, aboutLoader, blogsLoader, articleLoader } from './loader';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +37,11 @@ const router = createBrowserRouter([
         element: <Blogs />,
         loader: blogsLoader,
         action: blogsAction,
+      },
+      {
+        path: 'articles/:articleId',
+        element: <Article />,
+        loader: articleLoader,
       },
     ],
   },

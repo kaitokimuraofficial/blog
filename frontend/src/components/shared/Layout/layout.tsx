@@ -1,7 +1,7 @@
 /* Library */
 import styled from 'styled-components';
 
-import { convertToLowerCaseAndRemoveSpaces } from '@/util';
+import { Truncate } from 'src/util/truncate';
 
 type Props = {
   content: JSX.Element;
@@ -12,7 +12,7 @@ type Props = {
 };
 
 export function AboutOuterLayout({ content, height, jc, pt, title }: Props) {
-  const id = convertToLowerCaseAndRemoveSpaces(title);
+  const id = Truncate(title);
   const key = import.meta.env.ENV_IMAGE_URL;
   return (
     <AboutHeaderOuter height={height} pt={pt}>

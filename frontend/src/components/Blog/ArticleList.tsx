@@ -1,4 +1,7 @@
+import { ArticleContainer } from './articleContainer';
+
 type ArticleProp = {
+  articleId: number;
   title: string;
   body: string;
   created: Date;
@@ -14,8 +17,7 @@ export function ArticleList({ articles }: Props) {
     <ol>
       {articles.map((article, index) => (
         <li key={index}>
-          <p>{article.title}</p>
-          <p>{article.body}</p>
+          <ArticleContainer title={article.title} id={article.articleId} />
         </li>
       ))}
     </ol>

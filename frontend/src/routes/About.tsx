@@ -10,7 +10,7 @@ import {
   MySkills,
   Portfolio,
   Profile,
-} from '@/components/About';
+} from 'src/components/About';
 
 export function About() {
   // const data = useLoaderData() as a
