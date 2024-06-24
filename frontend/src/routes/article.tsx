@@ -9,12 +9,13 @@ type Prop = {
 };
 
 export function Article() {
-  const data = useLoaderData()[0] as Prop;
+  const data = useLoaderData() as Prop[];
+  const article = data[0];
 
   return (
     <>
-      <h1>{data.title}</h1>
-      <h3>{data.body}</h3>
+      <h1>{article.title}</h1>
+      <h3>{article.body}</h3>
     </>
   );
 }

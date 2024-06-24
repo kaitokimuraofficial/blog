@@ -1,8 +1,4 @@
-type Prop = {
-  articleId: string;
-};
-
-export async function articleLoader({ params }: { params: Prop }) {
+export async function articleLoader({ params }: any) {
   const articleId = params.articleId;
   const response = await fetch(`/api/articles/${articleId}`);
   const articles = await response.json();
