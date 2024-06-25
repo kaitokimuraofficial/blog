@@ -1,3 +1,9 @@
-export function ArticleBody() {
-  return <div>jdfaiosdnfoasdinfao</div>;
+import { Markdown } from 'src/util/markdown';
+
+type Prop = {
+  body: string;
+};
+
+export function ArticleBody({ body }: Prop) {
+  return <Markdown body={body} />;
 }

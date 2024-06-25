@@ -4,7 +4,7 @@ export function BlogHeader() {
   return (
     <div>
       <p>Blog</p>
-      <img src={`${key}/images/man-using-pc.svg`} />
+      <img src={`${key}/man-using-pc.svg`} />
     </div>
   );
 }

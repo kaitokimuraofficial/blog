@@ -10,9 +10,9 @@ export function AboutHeader() {
     <AboutHeaderOuter>
       <AboutHeaderWrapper>
         <Greeting />
-        <Img src={`${key}/images/man-using-pc.svg`} />
+        <Img src={`${key}/man-using-pc.svg`} />
       </AboutHeaderWrapper>
-      <Img2 src={`${key}/images/wave-bg.svg`} />
+      <Img2 src={`${key}/wave-bg.svg`} />
     </AboutHeaderOuter>
   );
 }

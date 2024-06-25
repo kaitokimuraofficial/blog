@@ -18,7 +18,7 @@ export function AboutOuterLayout({ content, height, jc, pt, title }: Props) {
     <AboutHeaderOuter height={height} pt={pt}>
       <TitleWrapper>
         <Title id={id}>{title}</Title>
-        <img src={`${key}/images/marker.svg`} height={'20px'} />
+        <img src={`${key}/marker.svg`} height={'20px'} />
       </TitleWrapper>
       <BodyWrapper jc={jc}>{content}</BodyWrapper>
     </AboutHeaderOuter>

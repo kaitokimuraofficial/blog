@@ -5,7 +5,7 @@ export function ScrollTop() {
   const key = import.meta.env.ENV_IMAGE_URL;
   return (
     <ImgOuter href="#root">
-      <Img src={`${key}/images/icons/arrow-up.svg`} />
+      <Img src={`${key}/icons/arrow-up.svg`} />
     </ImgOuter>
   );
 }

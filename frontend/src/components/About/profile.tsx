@@ -9,7 +9,7 @@ export function Base() {
 
   return (
     <>
-      <Img src={`${key}/images/profile.png`} />
+      <Img src={`${key}/profile.png`} />
       <ProfileGreeting />
     </>
   );

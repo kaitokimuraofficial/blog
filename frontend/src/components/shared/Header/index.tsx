@@ -12,12 +12,12 @@ export const GH = () =>
   HeaderLink({
     href: 'https://github.com/kaitokimuraofficial',
     target: '_blank',
-    content: ImgComponent(`${key}/images/icons/github.svg`),
+    content: ImgComponent(`${key}/icons/github.svg`),
   });
 
 export const LinkedIn = () =>
   HeaderLink({
     href: 'https://www.linkedin.com/in/kaito-kimura-03b88b21a/',
     target: '_blank',
-    content: ImgComponent(`${key}/images/icons/linkedin.svg`),
+    content: ImgComponent(`${key}/icons/linkedin.svg`),
   });
