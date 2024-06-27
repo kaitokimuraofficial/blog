@@ -4,6 +4,7 @@ import (
 	"blog/controller/articles"
 	"blog/controller/health"
 	"blog/controller/home"
+	"blog/controller/users"
 	"blog/middleware"
 	"context"
 	"net/http"
@@ -27,6 +28,14 @@ func NewMux(ctx context.Context) (http.Handler, error) {
 				r.Get("/", middleware.AddHeader(articles.GetArticle))
 				r.Put("/", middleware.AddHeader(articles.UpdateArticle))
 				r.Delete("/", middleware.AddHeader(articles.DeleteArticle))
+			})
+		})
+
+		r.Route("/users", func(r chi.Router) {
+			r.Get("/", middleware.AddHeader(users.GetUsers))
+
+			r.Route("/{userID}", func(r chi.Router) {
+				r.Get("/", middleware.AddHeader(users.GetUser))
 			})
 		})
 	})
