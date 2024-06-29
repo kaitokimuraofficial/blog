@@ -1,3 +1,3 @@
-export { rootAction } from './rootAction';
-export { aboutAction } from './aboutAction';
-export { blogsAction } from './blogsAction';
+export { AboutAction } from './aboutAction';
+export { BlogsAction } from './blogsAction';
+export { RootAction } from './rootAction';

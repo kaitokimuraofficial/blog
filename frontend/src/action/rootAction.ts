@@ -1,1 +1,1 @@
-export async function rootAction() {}
+export async function RootAction() {}

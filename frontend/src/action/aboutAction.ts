@@ -1,1 +1,1 @@
-export async function aboutAction() {}
+export async function AboutAction() {}

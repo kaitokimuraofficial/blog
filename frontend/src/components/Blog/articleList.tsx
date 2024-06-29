@@ -14,10 +14,10 @@ type Props = {
 
 export function ArticleList({ articles }: Props) {
   return (
-    <ol>
-      {articles.map((article, index) => (
-        <li key={index}>
-          <ArticleContainer title={article.title} id={article.articleId} />
+    <ol style={{ listStyleType: 'none' }}>
+      {articles.map(({ articleId, title, body }) => (
+        <li key={articleId}>
+          <ArticleContainer id={articleId} title={title} body={body} />
         </li>
       ))}
     </ol>

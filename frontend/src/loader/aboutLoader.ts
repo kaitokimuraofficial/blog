@@ -1,4 +1,4 @@
-export async function aboutLoader() {
+export async function AboutLoader() {
   // const response = await fetch('/api/health');
   // const movies = await response.json();
   // console.log('about');

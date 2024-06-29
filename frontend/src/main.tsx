@@ -11,8 +11,8 @@ import { Article } from './routes/article';
 import ErrorPage from './error-page';
 import './style/index.css';
 
-import { rootAction, aboutAction, blogsAction } from './action';
-import { rootLoader, aboutLoader, blogsLoader, articleLoader } from './loader';
+import { RootAction, AboutAction, BlogsAction } from './action';
+import { RootLoader, AboutLoader, BlogsLoader, ArticleLoader } from './loader';
 
 const router = createBrowserRouter([
   {
@@ -23,25 +23,25 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <About />,
-        loader: rootLoader,
-        action: rootAction,
+        loader: RootLoader,
+        action: RootAction,
       },
       {
         path: 'about',
         element: <About />,
-        loader: aboutLoader,
-        action: aboutAction,
+        loader: AboutLoader,
+        action: AboutAction,
       },
       {
         path: 'blog',
         element: <Blogs />,
-        loader: blogsLoader,
-        action: blogsAction,
+        loader: BlogsLoader,
+        action: BlogsAction,
       },
       {
         path: 'blog/articles/:articleId',
         element: <Article />,
-        loader: articleLoader,
+        loader: ArticleLoader,
       },
     ],
   },
