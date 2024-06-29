@@ -4,15 +4,21 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 /* Component */
 import { About } from './routes/about';
+import { Article } from './routes/article';
+import { ArticleEdit } from './routes/articleEdit';
 import { Blogs } from './routes/blogs';
 import { Root } from './routes/root';
-import { Article } from './routes/article';
 
 import ErrorPage from './error-page';
 import './style/index.css';
 
-import { RootAction, AboutAction, BlogsAction } from './action';
-import { RootLoader, AboutLoader, BlogsLoader, ArticleLoader } from './loader';
+import {
+  AboutAction,
+  ArticleEditAction,
+  BlogsAction,
+  RootAction,
+} from './action';
+import { AboutLoader, ArticleLoader, BlogsLoader, RootLoader } from './loader';
 
 const router = createBrowserRouter([
   {
@@ -33,15 +39,21 @@ const router = createBrowserRouter([
         action: AboutAction,
       },
       {
+        path: 'articles/:articleId',
+        element: <Article />,
+        loader: ArticleLoader,
+      },
+      {
         path: 'blog',
         element: <Blogs />,
         loader: BlogsLoader,
         action: BlogsAction,
       },
       {
-        path: 'blog/articles/:articleId',
-        element: <Article />,
+        path: 'articles/:articleId/edit',
+        element: <ArticleEdit />,
         loader: ArticleLoader,
+        action: ArticleEditAction,
       },
     ],
   },

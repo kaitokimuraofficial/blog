@@ -9,7 +9,7 @@ type Prop = {
 
 export function ArticleContainer({ id, body, title }: Prop) {
   return (
-    <Link to={`articles/${id}`}>
+    <Link to={`/articles/${id}`}>
       <ArticleContainerDiv>
         <ArticleContainerTitle title={title} />
         <ArticleContainerBody body={body} />
