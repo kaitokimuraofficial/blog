@@ -47,15 +47,17 @@ jobs:
 
       - uses: aws-actions/configure-aws-credentials@v4
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-northeast-1
+          role-to-assume: "arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/oidc-role"
 
       - name: Deploy
         run: |
-          aws ec2 authorize-security-group-ingress --group-id ${{ secrets.EC2_SECURITY_GROUP_ID }} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32
+          aws ec2 authorize-security-group-ingress --group-id ${{ secrets.EC2_SECURITY_GROUP_ID }} --protocol tcp --port 22 --cidr ${{ env.IPV4 }}
           echo "${{ secrets.PRIVATE_KEY }}" > private_key
           chmod 600 private_key
-          scp -o StrictHostKeyChecking=no -i private_key index.html ${{ secrets.USER_NAME }}@${{ secrets.HOST_NAME }}:/var/www/html
-          scp -o StrictHostKeyChecking=no -i private_key -r assets ${{ secrets.USER_NAME }}@${{ secrets.HOST_NAME }}:/var/www/html
-          aws ec2 revoke-security-group-ingress --group-id ${{ secrets.EC2_SECURITY_GROUP_ID }} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32
+          scp -o StrictHostKeyChecking=no -i private_key index.html ${{ env.EC2_PUBLIC_DNS }}:/var/www/html
+          scp -o StrictHostKeyChecking=no -i private_key -r assets ${{ env.EC2_PUBLIC_DNS }}:/var/www/html
+          aws ec2 revoke-security-group-ingress --group-id ${{ secrets.EC2_SECURITY_GROUP_ID }} --protocol tcp --port 22 --cidr ${{ env.IPV4 }}/32
+        env:
+          IPV4: ${{ steps.ip.outputs.ipv4 }}/32
+          EC2_PUBLIC_DNS: ${{ secrets.USER_NAME }}@${{ secrets.HOST_NAME }}
