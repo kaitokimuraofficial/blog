@@ -1,0 +1,30 @@
+name: Deploy to EC2
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  id-token: write
+
+env:
+  AWS_DEFAULT_REGION: "ap-northeast-1"
+  ROLE_TO_ASSUME: "arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/oidc-role-blog-deploy"
+  COMMAND_TO_BE_EXECUTED: ${{ secrets.DEPLOY_COMMAND_TO_BE_EXECUTED }}
+
+jobs:
+  Deploy:
+    name: 🚀 deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🔑 Setup AWS Credentials
+        uses: ./.github/actions/configure-aws-credentials
+        with:
+          aws-region: ${{ env.AWS_DEFAULT_REGION }}
+          role-to-assume: ${{ env.ROLE_TO_ASSUME }}
+
+      - name: 🔥 Execute SSM Run Command to deploy to EC2
+        id: exec
+        uses: ./.github/actions/execute-SSM-run-command
+        with:
+          command-to-be-executed: ${{ env.COMMAND_TO_BE_EXECUTED }}
