@@ -1,0 +1,24 @@
+name: Execute SSM Run Command
+description: Action of executing SSM Run Command
+
+inputs:
+  command-to-be-executed:
+    description: Command to be executed
+
+runs:
+  using: "composite"
+  steps:
+    - uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-region: ${{ inputs.aws-region }}
+        role-to-assume: ${{ inputs.role-to-assume }}
+
+    - name: Execute command
+      shell: bash
+      run: |
+        export RESPONSE=$(${ {inputs.command-to-be-executed} })
+        echo "commandId=$(echo $RESPONSE | jq .Command.CommandId)" >> $GITHUB_ENV
+
+    - name: Echo command ID
+      shell: bash
+      run: echo ${{ env.commandId }}

@@ -1,0 +1,17 @@
+name: Configure AWS credentials
+description: Action of configuring AWS credentials
+
+inputs:
+  aws-region:
+    description: AWS region
+  role-to-assume:
+    description: Arn of role that workflow is assumed
+
+runs:
+  using: "composite"
+  steps:
+    - name: Configure aws credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-region: ${{ inputs.aws-region }}
+        role-to-assume: ${{ inputs.role-to-assume }}
