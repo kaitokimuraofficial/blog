@@ -1,6 +1,9 @@
 package config
 
-import "github.com/caarlos0/env/v11"
+import (
+	"fmt"
+	"github.com/caarlos0/env/v11"
+)
 
 type Config struct {
 	Env        string `env:"ENV" envDefault:"dev"`
@@ -17,7 +20,7 @@ type Config struct {
 func New() (*Config, error) {
 	cfg := &Config{}
 	if err := env.Parse(cfg); err != nil {
-		return nil, err
+		return nil, fmt.Errorf("failed to parsing config: %w", err)
 	}
 
 	return cfg, nil
