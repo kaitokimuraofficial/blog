@@ -23,7 +23,7 @@ func TestNew(t *testing.T) {
 		t.Errorf("want %s, but %s", wantEnv, got.Env)
 	}
 
-	wantDBHost := "127.0.0.1"
+	wantDBHost := "db"
 	if got.DBHost != wantDBHost {
 		t.Errorf("want %v, but %v", wantDBHost, got.DBHost)
 	}
@@ -33,7 +33,7 @@ func TestNew(t *testing.T) {
 		t.Errorf("want %d, but %d", wantPort, got.DBPort)
 	}
 
-	wantDBUser := "root"
+	wantDBUser := "user"
 	if got.DBUser != wantDBUser {
 		t.Errorf("want %v, but %v", wantDBUser, got.DBUser)
 	}
