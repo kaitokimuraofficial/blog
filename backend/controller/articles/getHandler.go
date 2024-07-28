@@ -1,24 +1,24 @@
 package articles
 
 import (
+	"blog/model"
 	"context"
 	"encoding/json"
 	"fmt"
-
-	"blog/middleware"
-	"blog/model"
 	"net/http"
 
-	"github.com/go-chi/chi"
+	"github.com/go-chi/chi/v5"
+	"github.com/jmoiron/sqlx"
 )
 
 func GetArticles(w http.ResponseWriter, r *http.Request) {
 	articles := model.Articles{}
 
-	db, err := middleware.DBNew()
-	if err != nil {
-		fmt.Printf("NewDB Connection Error:" + err.Error())
+	db, ok := r.Context().Value("db").(*sqlx.DB)
+	if ok != true {
+		fmt.Printf("Failed to get DB connection from context")
 	}
+
 	sql := `SELECT ArticleId, title, body, createdAt, UpdatedAt from blog.article`
 	if err := db.SelectContext(context.Background(), &articles, sql); err != nil {
 		fmt.Printf("Error:" + err.Error())
@@ -38,10 +38,11 @@ func GetArticle(w http.ResponseWriter, r *http.Request) {
 	articles := model.Articles{}
 
 	articleID := chi.URLParam(r, "articleID")
-	db, err := middleware.DBNew()
-	if err != nil {
-		fmt.Printf("NewDB Connection Error:" + err.Error())
+	db, ok := r.Context().Value("db").(*sqlx.DB)
+	if ok != true {
+		fmt.Printf("Failed to get DB connection from context")
 	}
+
 	sql := `SELECT ArticleId, title, body, createdAt, UpdatedAt FROM blog.article WHERE ArticleId = ?`
 	if err := db.SelectContext(context.Background(), &articles, sql, *&articleID); err != nil {
 		fmt.Printf("Error:" + err.Error())
