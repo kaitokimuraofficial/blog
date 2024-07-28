@@ -1,6 +1,7 @@
 package main
 
 import (
+	"blog/config"
 	"context"
 	"fmt"
 	"log"
@@ -16,15 +17,20 @@ func main() {
 }
 
 func run(ctx context.Context) error {
-	l, err := net.Listen("tcp", fmt.Sprintf(":%d", 8080))
+	cfg, err := config.New()
 	if err != nil {
-		log.Fatalf("failed to listen port %d: %v", 8080, err)
+		return fmt.Errorf("an error occurred: %w", err)
+	}
+
+	l, err := net.Listen("tcp", fmt.Sprintf(":%d", cfg.BEPort))
+	if err != nil {
+		log.Fatalf("failed to listen port %d: %v", cfg.BEPort, err)
 	}
 
 	url := fmt.Sprintf("http://%s", l.Addr().String())
 	log.Printf("start with: %v", url)
 
-	mux, err := NewMux(ctx)
+	mux, err := NewMux(ctx, cfg)
 
 	if err != nil {
 		return err
