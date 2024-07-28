@@ -15,20 +15,14 @@ import (
 )
 
 func NewMux(ctx context.Context, cfg *config.Config) (http.Handler, func(), error) {
-	mux := chi.NewRouter()
-	mux.Use(mid.Logger)
-
 	db, cleanup, err := store.New(ctx, cfg)
 	if err != nil {
 		return nil, cleanup, err
 	}
 
-	mux.Use(func(next http.Handler) http.Handler {
-		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-			ctx := context.WithValue(r.Context(), "db", db)
-			next.ServeHTTP(w, r.WithContext(ctx))
-		})
-	})
+	mux := chi.NewRouter()
+	mux.Use(mid.Logger)
+	mux.Use(middleware.WithDB(db))
 
 	mux.Route("/api", func(r chi.Router) {
 		r.Get("/", middleware.AddHeader(health.GetHealth))
