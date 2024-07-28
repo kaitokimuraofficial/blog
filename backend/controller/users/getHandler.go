@@ -4,8 +4,8 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"github.com/jmoiron/sqlx"
 
-	"blog/middleware"
 	"blog/model"
 	"net/http"
 
@@ -15,10 +15,11 @@ import (
 func GetUsers(w http.ResponseWriter, r *http.Request) {
 	users := model.Users{}
 
-	db, err := middleware.DBNew()
-	if err != nil {
-		fmt.Printf("NewDB Connection Error:" + err.Error())
+	db, ok := r.Context().Value("db").(*sqlx.DB)
+	if ok != true {
+		fmt.Printf("Failed to get DB connection from context")
 	}
+
 	sql := `SELECT UserId, name, email, createdAt, UpdatedAt from blog.user`
 	if err := db.SelectContext(context.Background(), &users, sql); err != nil {
 		fmt.Printf("Error:" + err.Error())
@@ -35,13 +36,15 @@ func GetUsers(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetUser(w http.ResponseWriter, r *http.Request) {
+	userID := chi.URLParam(r, "userID")
+
+	db, ok := r.Context().Value("db").(*sqlx.DB)
+	if ok != true {
+		fmt.Printf("Failed to get DB connection from context")
+	}
+
 	users := model.Users{}
 
-	userID := chi.URLParam(r, "userID")
-	db, err := middleware.DBNew()
-	if err != nil {
-		fmt.Printf("NewDB Connection Error:" + err.Error())
-	}
 	sql := `SELECT UserId, name, email, createdAt, UpdatedAt FROM blog.user WHERE UserID = ?`
 	if err := db.SelectContext(context.Background(), &users, sql, *&userID); err != nil {
 		fmt.Printf("Error:" + err.Error())
