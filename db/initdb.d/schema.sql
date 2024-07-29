@@ -1,5 +1,3 @@
-DROP TABLE IF EXISTS article;
-
 CREATE TABLE article
 (
     `ArticleID`                       BIGINT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'article_ID',
@@ -11,8 +9,7 @@ CREATE TABLE article
     UNIQUE   KEY `uk_article_title` (`Title`) USING BTREE
 );
 
-INSERT INTO article (Title, Body) VALUES ("初投稿", "初めて投稿します。\nこれからがんばります。I can do this! ");
-INSERT INTO article (Title, Body) VALUES ("二つ目の記事", "二つ目の記事。");
+
 
 CREATE TABLE user
 (
@@ -25,5 +22,3 @@ CREATE TABLE user
     UNIQUE   KEY `uk_user_name` (`Name`) USING BTREE
 );
 
-INSERT INTO user (Name, Email) VALUES ("testuser", "test@example.com");
-INSERT INTO user (Name, Email) VALUES ("testuser2", "test2@example.com");
