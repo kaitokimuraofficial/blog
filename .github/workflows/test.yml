@@ -11,9 +11,15 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version: '1.22.0'
+
       - name: Install dependencies
         run: cd backend && go get .
+
       - name: Build
         run: cd backend && go build -v ./...
+
+      - name: Start MySQL container
+        uses: ./.github/actions/start-MySQL-container
+
       - name: Test with the Go CLI
         run: cd backend && go test -v ./...

@@ -22,6 +22,12 @@ logs: ## Tail docker compose logs
 ps: ## Check container status
 	docker compose ps
 
+dry-migrate: ## Try migration
+	mysqldef -u user -p password -h 127.0.0.1 -P 3306 blog --dry-run < ./db/initdb.d/schema.sql
+
+migrate:  ## Execute migration
+	mysqldef -u user -p password -h 127.0.0.1 -P 3306 blog < ./db/initdb.d/schema.sql
+
 help: ## Show options
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
 		awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
