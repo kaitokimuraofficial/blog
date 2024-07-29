@@ -12,7 +12,7 @@ func TestOpenDBForTest(t *testing.T) {
 	db := OpenDBForTest(t)
 
 	if db.DriverName() != "mysql" {
-		t.Errorf("diferrent db name %v", db.DriverName())
+		t.Errorf("different db name %v", db.DriverName())
 	}
 
 	_, err := db.Exec("SHOW TABLES")

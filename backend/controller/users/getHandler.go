@@ -1,12 +1,10 @@
 package users
 
 import (
-	"context"
+	"blog/model"
+	"blog/store"
 	"encoding/json"
 	"fmt"
-	"github.com/jmoiron/sqlx"
-
-	"blog/model"
 	"net/http"
 
 	"github.com/go-chi/chi"
@@ -15,47 +13,49 @@ import (
 func GetUsers(w http.ResponseWriter, r *http.Request) {
 	users := model.Users{}
 
-	db, ok := r.Context().Value("db").(*sqlx.DB)
+	db, ok := r.Context().Value("db").(store.Queryer)
 	if ok != true {
-		fmt.Printf("Failed to get DB connection from context")
+		fmt.Printf("failed to get DB connection from context")
 	}
 
-	sql := `SELECT UserId, name, email, createdAt, UpdatedAt from blog.user`
-	if err := db.SelectContext(context.Background(), &users, sql); err != nil {
-		fmt.Printf("Error:" + err.Error())
+	sql := `SELECT UserId, name, email, createdAt, UpdatedAt from user`
+	if err := db.SelectContext(r.Context(), &users, sql); err != nil {
+		fmt.Printf("failed to exec SELECT query: %v", err)
 	}
-	p, err := json.Marshal(users)
-	fmt.Printf("%s\n", p)
+
+	ujs, err := json.Marshal(users)
 	if err != nil {
-		fmt.Printf("Error:" + err.Error())
+		fmt.Printf("failed to encode to JSON: %v", err)
 	}
-	_, err = w.Write(p)
+
+	_, err = w.Write(ujs)
 	if err != nil {
-		fmt.Printf("Error:" + err.Error())
+		fmt.Printf("failed to write data: %v", err)
 	}
 }
 
 func GetUser(w http.ResponseWriter, r *http.Request) {
 	userID := chi.URLParam(r, "userID")
 
-	db, ok := r.Context().Value("db").(*sqlx.DB)
+	db, ok := r.Context().Value("db").(store.Queryer)
 	if ok != true {
-		fmt.Printf("Failed to get DB connection from context")
+		fmt.Printf("failed to get DB connection from context")
 	}
 
-	users := model.Users{}
+	user := model.User{}
 
-	sql := `SELECT UserId, name, email, createdAt, UpdatedAt FROM blog.user WHERE UserID = ?`
-	if err := db.SelectContext(context.Background(), &users, sql, *&userID); err != nil {
-		fmt.Printf("Error:" + err.Error())
+	sql := `SELECT UserId, name, email, createdAt, UpdatedAt FROM user WHERE UserID = ?`
+	if err := db.SelectContext(r.Context(), &user, sql, *&userID); err != nil {
+		fmt.Printf("failed to exec SELECT query: %v", err)
 	}
-	p, err := json.Marshal(users)
-	fmt.Printf("%s\n", p)
+
+	uj, err := json.Marshal(user)
 	if err != nil {
-		fmt.Printf("Error:" + err.Error())
+		fmt.Printf("failed to encode to JSON: %v", err)
 	}
-	_, err = w.Write(p)
+
+	_, err = w.Write(uj)
 	if err != nil {
-		fmt.Printf("Error:" + err.Error())
+		fmt.Printf("failed to write data: %v", err)
 	}
 }
