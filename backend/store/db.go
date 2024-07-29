@@ -21,13 +21,13 @@ func New(ctx context.Context, cfg *config.Config) (*sqlx.DB, func(), error) {
 		),
 	)
 	if err != nil {
-		return nil, func() {}, err
+		return nil, func() {}, fmt.Errorf("failed to open DB: %w", err)
 	}
 
 	ctx, cancel := context.WithTimeout(ctx, 2*time.Second)
 	defer cancel()
 	if err := db.PingContext(ctx); err != nil {
-		return nil, func() { _ = db.Close() }, err
+		return nil, func() { _ = db.Close() }, fmt.Errorf("failed to ping: %w", err)
 	}
 	xdb := sqlx.NewDb(db, "mysql")
 	return xdb, func() { _ = db.Close() }, nil
