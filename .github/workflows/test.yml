@@ -2,6 +2,11 @@ name: Test (Backend)
 
 on:
   workflow_dispatch:
+  pull_request:
+    types:
+      - opened
+    paths:
+      - 'backend/**/*.go'
 
 jobs:
   Test:
