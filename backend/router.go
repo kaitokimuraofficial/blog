@@ -23,26 +23,27 @@ func NewMux(ctx context.Context, cfg *config.Config) (http.Handler, func(), erro
 	mux := chi.NewRouter()
 	mux.Use(mid.Logger)
 	mux.Use(middleware.WithDB(db))
+	mux.Use(middleware.SetHeader())
 
 	mux.Route("/api", func(r chi.Router) {
-		r.Get("/", middleware.AddHeader(health.GetHealth))
-		r.Get("/health", middleware.AddHeader(health.GetHealth))
+		r.Get("/", health.GetHealth)
+		r.Get("/health", health.GetHealth)
 
 		r.Route("/articles", func(r chi.Router) {
-			r.Get("/", middleware.AddHeader(articles.GetArticles))
+			r.Get("/", articles.GetArticles)
 
 			r.Route("/{articleID}", func(r chi.Router) {
-				r.Get("/", middleware.AddHeader(articles.GetArticle))
-				r.Put("/", middleware.AddHeader(articles.UpdateArticle))
-				r.Delete("/", middleware.AddHeader(articles.DeleteArticle))
+				r.Get("/", articles.GetArticle)
+				r.Put("/", articles.UpdateArticle)
+				r.Delete("/", articles.DeleteArticle)
 			})
 		})
 
 		r.Route("/users", func(r chi.Router) {
-			r.Get("/", middleware.AddHeader(users.GetUsers))
+			r.Get("/", users.GetUsers)
 
 			r.Route("/{userID}", func(r chi.Router) {
-				r.Get("/", middleware.AddHeader(users.GetUser))
+				r.Get("/", users.GetUser)
 			})
 		})
 	})
