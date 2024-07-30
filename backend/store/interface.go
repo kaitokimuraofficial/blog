@@ -5,6 +5,7 @@ import (
 	"database/sql"
 	"errors"
 	"github.com/jmoiron/sqlx"
+	"net/http"
 )
 
 const (
@@ -44,4 +45,20 @@ var (
 
 type Repository struct {
 	Clock Clock
+}
+
+type Getter struct {
+	DB Queryer
+}
+
+type Putter struct {
+	DB Execer
+}
+
+func (g Getter) Fn(handlerFunc func(Queryer) http.HandlerFunc) http.HandlerFunc {
+	return handlerFunc(g.DB)
+}
+
+func (p Putter) Fn(handlerFunc func(Execer) http.HandlerFunc) http.HandlerFunc {
+	return handlerFunc(p.DB)
 }

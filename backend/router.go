@@ -22,28 +22,30 @@ func NewMux(ctx context.Context, cfg *config.Config) (http.Handler, func(), erro
 
 	mux := chi.NewRouter()
 	mux.Use(mid.Logger)
-	mux.Use(middleware.WithDB(db))
 	mux.Use(middleware.SetHeader())
+
+	h := store.Getter{DB: db}
+	p := store.Putter{DB: db}
 
 	mux.Route("/api", func(r chi.Router) {
 		r.Get("/", health.GetHealth)
 		r.Get("/health", health.GetHealth)
 
 		r.Route("/articles", func(r chi.Router) {
-			r.Get("/", articles.GetArticles)
+			r.Get("/", h.Fn(articles.GetArticles))
 
 			r.Route("/{articleID}", func(r chi.Router) {
-				r.Get("/", articles.GetArticle)
-				r.Put("/", articles.UpdateArticle)
-				r.Delete("/", articles.DeleteArticle)
+				r.Get("/", h.Fn(articles.GetArticle))
+				r.Put("/", p.Fn(articles.UpdateArticle))
+				r.Delete("/", p.Fn(articles.DeleteArticle))
 			})
 		})
 
 		r.Route("/users", func(r chi.Router) {
-			r.Get("/", users.GetUsers)
+			r.Get("/", h.Fn(users.GetUsers))
 
 			r.Route("/{userID}", func(r chi.Router) {
-				r.Get("/", users.GetUser)
+				r.Get("/", h.Fn(users.GetUser))
 			})
 		})
 	})

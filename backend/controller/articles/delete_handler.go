@@ -7,29 +7,26 @@ import (
 	"net/http"
 )
 
-func DeleteArticle(w http.ResponseWriter, r *http.Request) {
-	db, ok := r.Context().Value("db").(store.Execer)
-	if !ok {
-		fmt.Printf("failed to get DB connection from context")
-	}
+func DeleteArticle(db store.Execer) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		article := model.Article{}
 
-	id, ok := r.Context().Value("article").(*int)
-	if !ok {
-		fmt.Printf("failed to get article ID connection from context")
-		http.Error(w, http.StatusText(http.StatusUnprocessableEntity), http.StatusUnprocessableEntity)
-	}
+		id, ok := r.Context().Value("article").(*int)
+		if !ok {
+			fmt.Printf("failed to get article ID connection from context")
+			http.Error(w, http.StatusText(http.StatusUnprocessableEntity), http.StatusUnprocessableEntity)
+		}
 
-	body, ok := r.Context().Value("body").(*string)
-	if !ok {
-		fmt.Printf("failed to get article body connection from context")
-		http.Error(w, http.StatusText(http.StatusUnprocessableEntity), http.StatusUnprocessableEntity)
-	}
+		body, ok := r.Context().Value("body").(*string)
+		if !ok {
+			fmt.Printf("failed to get article body connection from context")
+			http.Error(w, http.StatusText(http.StatusUnprocessableEntity), http.StatusUnprocessableEntity)
+		}
 
-	article := model.Article{}
-
-	sql := `DELETE FROM article WHERE ArticleId = ?`
-	_, err := db.ExecContext(r.Context(), sql, &article, *body, *id)
-	if err != nil {
-		fmt.Printf("failed to exec UPDATE query: %v", err)
+		sql := `DELETE FROM article WHERE ArticleId = ?`
+		_, err := db.ExecContext(r.Context(), sql, &article, *body, *id)
+		if err != nil {
+			fmt.Printf("failed to exec DELETE query: %v", err)
+		}
 	}
 }
