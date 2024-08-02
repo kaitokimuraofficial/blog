@@ -17,6 +17,13 @@ services:
       - MYSQL_DATABASE=blog
     ports:
       - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
   frontend:
     container_name: blog_frontend
     build:
@@ -40,7 +47,8 @@ services:
     volumes:
       - ./backend:/app
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
 volumes:
   db-data:
