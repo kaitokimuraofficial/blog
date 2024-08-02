@@ -14,12 +14,12 @@ type UserSrv struct {
 }
 
 type UserRepo interface {
-	GetUser(ctx context.Context, db Queryer) (*model.User, error)
+	GetUser(ctx context.Context, db Queryer, userID string) (*model.User, error)
 	GetUsers(ctx context.Context, db Queryer) (*model.Users, error)
 }
 
-func (u *UserSrv) GetUser(ctx context.Context) (*model.User, error) {
-	ur, err := u.Repo.GetUser(ctx, u.DB)
+func (u *UserSrv) GetUser(ctx context.Context, userID string) (*model.User, error) {
+	ur, err := u.Repo.GetUser(ctx, u.DB, userID)
 	if err != nil {
 		return nil, fmt.Errorf("failed to exec Repo.GetUser: %w", err)
 	}
@@ -34,13 +34,8 @@ func (u *UserSrv) GetUsers(ctx context.Context) (*model.Users, error) {
 	return ur, nil
 }
 
-func (r *Repository) GetUser(ctx context.Context, db Queryer) (*model.User, error) {
+func (r *Repository) GetUser(ctx context.Context, db Queryer, userID string) (*model.User, error) {
 	user := model.User{}
-
-	userID, ok := ctx.Value("userID").(string)
-	if !ok {
-		return nil, fmt.Errorf("userID not found in context")
-	}
 
 	sql := `SELECT UserId, name, email, createdAt, UpdatedAt from user WHERE UserId = ?`
 	if err := db.GetContext(ctx, &user, sql, userID); err != nil {

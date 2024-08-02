@@ -3,7 +3,6 @@ package controller
 import (
 	"blog/store"
 	"blog/util"
-	"context"
 	"fmt"
 	"net/http"
 
@@ -16,9 +15,8 @@ type UserHandler struct {
 
 func (at *UserHandler) GetUser(w http.ResponseWriter, r *http.Request) {
 	userID := chi.URLParam(r, "userID")
-	ctx := context.WithValue(r.Context(), "userID", userID)
 
-	u, err := at.Service.GetUser(ctx)
+	u, err := at.Service.GetUser(r.Context(), userID)
 	if err != nil {
 		fmt.Printf("failed to exec Service.GetUser: %v", err)
 	}
@@ -29,9 +27,7 @@ func (at *UserHandler) GetUser(w http.ResponseWriter, r *http.Request) {
 }
 
 func (at *UserHandler) GetUsers(w http.ResponseWriter, r *http.Request) {
-	ctx := r.Context()
-
-	us, err := at.Service.GetUsers(ctx)
+	us, err := at.Service.GetUsers(r.Context())
 	if err != nil {
 		fmt.Printf("failed to exec Service.GetUsers: %v", err)
 	}

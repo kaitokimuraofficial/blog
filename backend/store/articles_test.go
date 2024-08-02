@@ -15,7 +15,7 @@ type MockArticleRepo struct {
 	mock.Mock
 }
 
-func (m *MockArticleRepo) GetArticle(ctx context.Context, db Queryer) (*model.Article, error) {
+func (m *MockArticleRepo) GetArticle(ctx context.Context, db Queryer, articleID string) (*model.Article, error) {
 	args := m.Called(ctx, db)
 	return args.Get(0).(*model.Article), args.Error(1)
 }
@@ -25,7 +25,7 @@ func (m *MockArticleRepo) GetArticles(ctx context.Context, db Queryer) (*model.A
 	return args.Get(0).(*model.Articles), args.Error(1)
 }
 
-func (m *MockArticleRepo) DeleteArticle(ctx context.Context, db Execer) error {
+func (m *MockArticleRepo) DeleteArticle(ctx context.Context, db Execer, articleID string) error {
 	args := m.Called(ctx, db)
 	return args.Error(0)
 }
@@ -46,11 +46,11 @@ func TestGetArticle(t *testing.T) {
 		UpdatedAt: time.Now(),
 	}
 
-	ctx := context.WithValue(context.Background(), "articleID", "1")
+	ctx := context.Background()
 
 	mockRepo.On("GetArticle", ctx, mockDB).Return(expectedArticle, nil)
 
-	article, err := articleSrv.GetArticle(ctx)
+	article, err := articleSrv.GetArticle(ctx, "1")
 	assert.NoError(t, err)
 	assert.Equal(t, expectedArticle, article)
 
@@ -101,11 +101,11 @@ func TestDeleteArticle(t *testing.T) {
 		Repo: mockRepo,
 	}
 
-	ctx := context.WithValue(context.Background(), "articleID", "1")
+	ctx := context.Background()
 
 	mockRepo.On("DeleteArticle", ctx, mockDB).Return(nil)
 
-	err := articleSrv.DeleteArticle(ctx)
+	err := articleSrv.DeleteArticle(ctx, "1")
 	assert.NoError(t, err)
 
 	mockRepo.AssertExpectations(t)

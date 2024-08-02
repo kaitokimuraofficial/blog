@@ -15,7 +15,7 @@ type MockUserRepo struct {
 	mock.Mock
 }
 
-func (m *MockUserRepo) GetUser(ctx context.Context, db Queryer) (*model.User, error) {
+func (m *MockUserRepo) GetUser(ctx context.Context, db Queryer, userID string) (*model.User, error) {
 	args := m.Called(ctx, db)
 	return args.Get(0).(*model.User), args.Error(1)
 }
@@ -41,11 +41,11 @@ func TestGetUser(t *testing.T) {
 		UpdatedAt: time.Now(),
 	}
 
-	ctx := context.WithValue(context.Background(), "userID", "1")
+	ctx := context.Background()
 
 	mockRepo.On("GetUser", ctx, mockDB).Return(expectedUser, nil)
 
-	user, err := userSrv.GetUser(ctx)
+	user, err := userSrv.GetUser(ctx, "1")
 	assert.NoError(t, err)
 	assert.Equal(t, expectedUser, user)
 

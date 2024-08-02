@@ -14,13 +14,13 @@ type ArticleSrv struct {
 }
 
 type ArticleRepo interface {
-	GetArticle(ctx context.Context, db Queryer) (*model.Article, error)
+	GetArticle(ctx context.Context, db Queryer, articleID string) (*model.Article, error)
 	GetArticles(ctx context.Context, db Queryer) (*model.Articles, error)
-	DeleteArticle(ctx context.Context, db Execer) error
+	DeleteArticle(ctx context.Context, db Execer, articleID string) error
 }
 
-func (a *ArticleSrv) GetArticle(ctx context.Context) (*model.Article, error) {
-	ar, err := a.Repo.GetArticle(ctx, a.DB)
+func (a *ArticleSrv) GetArticle(ctx context.Context, articleID string) (*model.Article, error) {
+	ar, err := a.Repo.GetArticle(ctx, a.DB, articleID)
 	if err != nil {
 		return nil, fmt.Errorf("failed to exec Repo.GetArticle: %w", err)
 	}
@@ -35,21 +35,16 @@ func (a *ArticleSrv) GetArticles(ctx context.Context) (*model.Articles, error) {
 	return ar, nil
 }
 
-func (a *ArticleSrv) DeleteArticle(ctx context.Context) error {
-	err := a.Repo.DeleteArticle(ctx, a.DB)
+func (a *ArticleSrv) DeleteArticle(ctx context.Context, articleID string) error {
+	err := a.Repo.DeleteArticle(ctx, a.DB, articleID)
 	if err != nil {
 		return fmt.Errorf("failed to Repo.GetArticles: %w", err)
 	}
 	return nil
 }
 
-func (r *Repository) GetArticle(ctx context.Context, db Queryer) (*model.Article, error) {
+func (r *Repository) GetArticle(ctx context.Context, db Queryer, articleID string) (*model.Article, error) {
 	article := model.Article{}
-
-	articleID, ok := ctx.Value("articleID").(string)
-	if !ok {
-		return nil, fmt.Errorf("articleID not found in context")
-	}
 
 	sql := `SELECT ArticleId, title, body, createdAt, UpdatedAt FROM article WHERE ArticleId = ?`
 	if err := db.GetContext(ctx, &article, sql, articleID); err != nil {
@@ -70,12 +65,7 @@ func (r *Repository) GetArticles(ctx context.Context, db Queryer) (*model.Articl
 	return &articles, nil
 }
 
-func (r *Repository) DeleteArticle(ctx context.Context, db Execer) error {
-	articleID, ok := ctx.Value("articleID").(string)
-	if !ok {
-		return fmt.Errorf("articleID not found in context")
-	}
-
+func (r *Repository) DeleteArticle(ctx context.Context, db Execer, articleID string) error {
 	sql := `DELETE FROM article WHERE ArticleId = ?`
 	res, err := db.ExecContext(ctx, sql, articleID)
 	if err != nil {

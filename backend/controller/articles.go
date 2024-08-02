@@ -3,7 +3,6 @@ package controller
 import (
 	"blog/store"
 	"blog/util"
-	"context"
 	"fmt"
 	"net/http"
 
@@ -16,9 +15,8 @@ type ArticleHandler struct {
 
 func (at *ArticleHandler) GetArticle(w http.ResponseWriter, r *http.Request) {
 	articleID := chi.URLParam(r, "articleID")
-	ctx := context.WithValue(r.Context(), "articleID", articleID)
 
-	a, err := at.Service.GetArticle(ctx)
+	a, err := at.Service.GetArticle(r.Context(), articleID)
 	if err != nil {
 		fmt.Printf("failed to exec Service.GetArticle: %v", err)
 	}
@@ -29,9 +27,7 @@ func (at *ArticleHandler) GetArticle(w http.ResponseWriter, r *http.Request) {
 }
 
 func (at *ArticleHandler) GetArticles(w http.ResponseWriter, r *http.Request) {
-	ctx := r.Context()
-
-	as, err := at.Service.GetArticles(ctx)
+	as, err := at.Service.GetArticles(r.Context())
 	if err != nil {
 		fmt.Printf("failed to exec Service.GetArticles: %v", err)
 	}
@@ -43,9 +39,8 @@ func (at *ArticleHandler) GetArticles(w http.ResponseWriter, r *http.Request) {
 
 func (at *ArticleHandler) DeleteArticle(w http.ResponseWriter, r *http.Request) {
 	articleID := chi.URLParam(r, "articleID")
-	ctx := context.WithValue(r.Context(), "articleID", articleID)
 
-	err := at.Service.DeleteArticle(ctx)
+	err := at.Service.DeleteArticle(r.Context(), articleID)
 	if err != nil {
 		fmt.Printf("failed to exec Service.DeleteArticle: %v", err)
 	}
