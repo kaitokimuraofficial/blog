@@ -2,8 +2,8 @@ package controller
 
 import (
 	"blog/store"
+	"blog/util"
 	"context"
-	"encoding/json"
 	"fmt"
 	"net/http"
 
@@ -23,14 +23,8 @@ func (at *UserHandler) GetUser(w http.ResponseWriter, r *http.Request) {
 		fmt.Printf("failed to exec Service.GetUser: %v", err)
 	}
 
-	asj, err := json.Marshal(*u)
-	if err != nil {
-		fmt.Printf("failed to encode to JSON: %v", err)
-	}
-
-	_, err = w.Write(asj)
-	if err != nil {
-		fmt.Printf("failed to write data: %v", err)
+	if err = util.WriteJSONResponse(w, u); err != nil {
+		fmt.Printf("%v", err)
 	}
 }
 
@@ -42,13 +36,7 @@ func (at *UserHandler) GetUsers(w http.ResponseWriter, r *http.Request) {
 		fmt.Printf("failed to exec Service.GetUsers: %v", err)
 	}
 
-	usj, err := json.Marshal(*us)
-	if err != nil {
-		fmt.Printf("failed to encode to JSON: %v", err)
-	}
-
-	_, err = w.Write(usj)
-	if err != nil {
-		fmt.Printf("failed to write data: %v", err)
+	if err = util.WriteJSONResponse(w, us); err != nil {
+		fmt.Printf("%v", err)
 	}
 }
