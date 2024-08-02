@@ -4,8 +4,8 @@ import (
 	"context"
 	"database/sql"
 	"errors"
+
 	"github.com/jmoiron/sqlx"
-	"net/http"
 )
 
 const (
@@ -22,7 +22,6 @@ type Beginner interface {
 type Preparer interface {
 	PreparexContext(ctx context.Context, query string) (*sqlx.Stmt, error)
 }
-
 type Execer interface {
 	ExecContext(ctx context.Context, query string, args ...any) (sql.Result, error)
 	NamedExecContext(ctx context.Context, query string, arg interface{}) (sql.Result, error)
@@ -45,20 +44,4 @@ var (
 
 type Repository struct {
 	Clock Clock
-}
-
-type Getter struct {
-	DB Queryer
-}
-
-type Putter struct {
-	DB Execer
-}
-
-func (g Getter) Fn(handlerFunc func(Queryer) http.HandlerFunc) http.HandlerFunc {
-	return handlerFunc(g.DB)
-}
-
-func (p Putter) Fn(handlerFunc func(Execer) http.HandlerFunc) http.HandlerFunc {
-	return handlerFunc(p.DB)
 }

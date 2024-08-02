@@ -2,9 +2,7 @@ package main
 
 import (
 	"blog/config"
-	"blog/controller/articles"
-	"blog/controller/health"
-	"blog/controller/users"
+	"blog/controller"
 	"blog/middleware"
 	"blog/store"
 	"context"
@@ -24,28 +22,33 @@ func NewMux(ctx context.Context, cfg *config.Config) (http.Handler, func(), erro
 	mux.Use(mid.Logger)
 	mux.Use(middleware.SetHeader())
 
-	h := store.Getter{DB: db}
-	p := store.Putter{DB: db}
+	sr := store.Repository{Clock: store.RealClock{}}
+	at := &controller.ArticleHandler{
+		Service: &store.ArticleSrv{DB: db, Repo: &sr},
+	}
+
+	ut := &controller.UserHandler{
+		Service: &store.UserSrv{DB: db, Repo: &sr},
+	}
 
 	mux.Route("/api", func(r chi.Router) {
-		r.Get("/", health.GetHealth)
-		r.Get("/health", health.GetHealth)
+		r.Get("/", controller.GetHealth)
+		r.Get("/health", controller.GetHealth)
 
 		r.Route("/articles", func(r chi.Router) {
-			r.Get("/", h.Fn(articles.GetArticles))
+			r.Get("/", at.GetArticles)
 
 			r.Route("/{articleID}", func(r chi.Router) {
-				r.Get("/", h.Fn(articles.GetArticle))
-				r.Put("/", p.Fn(articles.UpdateArticle))
-				r.Delete("/", p.Fn(articles.DeleteArticle))
+				r.Get("/", at.GetArticle)
+				r.Delete("/", at.DeleteArticle)
 			})
 		})
 
 		r.Route("/users", func(r chi.Router) {
-			r.Get("/", h.Fn(users.GetUsers))
+			r.Get("/", ut.GetUsers)
 
 			r.Route("/{userID}", func(r chi.Router) {
-				r.Get("/", h.Fn(users.GetUser))
+				r.Get("/", ut.GetUser)
 			})
 		})
 	})
