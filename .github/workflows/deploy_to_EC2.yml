@@ -8,7 +8,7 @@ permissions:
   id-token: write
 
 env:
-  AWS_DEFAULT_REGION: "ap-northeast-1"
+  AWS_DEFAULT_REGION: ap-northeast-1
   ROLE_TO_ASSUME: "arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/oidc-role-blog-deploy"
   COMMAND_TO_BE_EXECUTED: ${{ secrets.DEPLOY_COMMAND_TO_BE_EXECUTED }}
 
@@ -17,6 +17,7 @@ jobs:
     name: 🚀 deploy
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - name: 🔑 Setup AWS Credentials
         uses: ./.github/actions/configure-aws-credentials
         with:

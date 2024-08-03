@@ -4,8 +4,10 @@ description: Action of configuring AWS credentials
 inputs:
   aws-region:
     description: AWS region
+    required: true
   role-to-assume:
     description: Arn of role that workflow is assumed
+    required: true
 
 runs:
   using: "composite"
