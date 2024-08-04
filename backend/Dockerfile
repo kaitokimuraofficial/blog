@@ -1,4 +1,4 @@
-FROM golang:1.22.0-bullseye as deploy-builder
+FROM golang:1.22.0-bullseye AS deploy-builder
 
 WORKDIR /app
 
@@ -10,7 +10,7 @@ RUN go build -trimpath -ldflags "-w -s" -o app
 
 # ---------------------------------------------------
 
-FROM debian:bullseye-slim as deploy
+FROM debian:bullseye-slim AS deploy
 
 RUN apt-get update
 
@@ -20,7 +20,7 @@ CMD ["./app"]
 
 # # ---------------------------------------------------
 
-FROM golang:1.22.0 as dev
+FROM golang:1.22.0 AS dev
 WORKDIR /app
 
 RUN go install github.com/air-verse/air@latest
