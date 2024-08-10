@@ -11,11 +11,8 @@ runs:
   steps:
     - name: Execute command
       shell: bash
+      # Commands below extract Result of SSM Run Command
       run: |
-        COMMAND="${{ inputs.command-to-be-executed }}"
-        RESPONSE=$(eval "$COMMAND")
-        echo "commandId=$(echo $RESPONSE | jq .Command.CommandId)" >> $GITHUB_ENV
-
-    - name: Echo command ID
-      shell: bash
-      run: echo ${{ env.commandId }}
+        COMMAND_ID=$(${{ inputs.command-to-be-executed }} | jq --raw-output '.Command.CommandId')
+        echo $COMMAND_ID
+        aws ssm list-command-invocations --command-id ${COMMAND_ID} --details | jq '.CommandInvocations[].CommandPlugins[].Output'
