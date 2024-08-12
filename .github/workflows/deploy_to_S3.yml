@@ -9,7 +9,6 @@ permissions:
 env:
   AWS_DEFAULT_REGION: ap-northeast-1
   ROLE_TO_ASSUME: "arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/oidc-role-blog-deploy"
-  COMMAND_TO_UPLOAD: ${{ secrets.COMMAND_TO_UPLOAD }}
 
 jobs:
   BuildAndPush:
@@ -54,7 +53,4 @@ jobs:
         uses: ./.github/actions/install-aws-cli
 
       - name: 🔥 Execute AWS command to upload to S3
-        id: exec
-        uses: ./.github/actions/execute-SSM-run-command
-        with:
-          command-to-be-executed: ${{ env.COMMAND_TO_UPLOAD }}
+        run: ${{ secrets.COMMAND_TO_UPLOAD }}

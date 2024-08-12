@@ -10,7 +10,6 @@ permissions:
 env:
   AWS_DEFAULT_REGION: ap-northeast-1
   ROLE_TO_ASSUME: "arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/oidc-role-blog-deploy"
-  COMMAND_TO_BE_EXECUTED: ${{ secrets.DEPLOY_COMMAND_TO_BE_EXECUTED }}
 
 jobs:
   Deploy:
@@ -31,4 +30,4 @@ jobs:
         id: exec
         uses: ./.github/actions/execute-SSM-run-command
         with:
-          command-to-be-executed: ${{ env.COMMAND_TO_BE_EXECUTED }}
+          command-to-be-executed: ${{ secrets.DEPLOY_COMMAND_TO_BE_EXECUTED }}
