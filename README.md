@@ -14,7 +14,7 @@ I am the one who uses [`TypeScript`](https://www.typescriptlang.org/) mainly as 
 
 
 ### Backend
-We use [Golang](https://go.dev/doc/) as backend. The reasons for choice are following.
+We use [`Golang`](https://go.dev/doc/) as backend. The reasons for choice are following.
 - Efficiency and type safety thanks for static typing compiled languages
 - Ease of implementing concurrency processing
 - Simple grammar
@@ -22,7 +22,7 @@ We use [Golang](https://go.dev/doc/) as backend. The reasons for choice are foll
 
 
 ### Database
-[MySQL](https://dev.mysql.com/), one of the world's most popular open source databases is used in this repository. What makes me think MySQL is the best choice for this application is listed below.
+[`MySQL`](https://dev.mysql.com/), one of the world's most popular open source databases is used in this repository. What makes me think MySQL is the best choice for this application is listed below.
 - Being one of the most commonly used databases
 - Having various examples of using Golang and MySQL, like Golang official document Tutorial, [Tutorial: Accessing a relational database](https://go.dev/doc/tutorial/database-access)
 
