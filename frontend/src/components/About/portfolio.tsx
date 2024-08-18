@@ -27,7 +27,7 @@ const PortfolioElement = () => {
         overviews. Iterative approaches to corporate strategy foster
         collaborative thinking to further the overall value proposition.
         Organically grow the holistic world view of disruptive innovation via
-        workplace diversity and empowerment.
+        workplace diversity and empowerment. Thank you.
       </PortfolioElementBody>
     </PortfolioElementOuter>
   );
