@@ -59,12 +59,11 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           path: dist
-      - name: Check dist folder
-        run: ls -la dist
+
       - name: 🔥 Upload builded files to S3
         id: upload
         uses: ./.github/actions/upload-to-S3
         with:
-          file_name: dist
+          file_name: dist/dist
           s3_bucket_name: ${{ secrets.ENV_IMAGE_URL }}
           s3_bucket_key: dist
