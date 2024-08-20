@@ -24,12 +24,6 @@ jobs:
       - name: Install dependencies
         run: cd backend && go get .
 
-      - name: Download env files
-        run: |
-          cd backend
-          echo "${{ secrets.BACKEND_ENV }}" > .env
-          ls -la
-
       - name: Build
         run: cd backend && go build -o deploy
 
