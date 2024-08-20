@@ -67,4 +67,4 @@ jobs:
         with:
           file_name: dist/dist
           s3_bucket_name: ${{ secrets.S3_BUCKET_NAME }}
-          s3_bucket_key: dist
+          s3_bucket_key: revision/dist
