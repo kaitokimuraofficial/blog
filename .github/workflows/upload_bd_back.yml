@@ -1,6 +1,11 @@
-name: Deploy to S3
+name: Uploaded Builded File (Backend)
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - backend/**
 
 permissions:
   contents: write
@@ -11,9 +16,9 @@ env:
   ROLE_TO_ASSUME: "arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/oidc-role-blog-deploy"
 
 jobs:
-  BuildAndPush:
+  build:
     runs-on: ubuntu-latest
-    name: Build and Push
+    name: Build
     environment: production
     steps:
       - uses: actions/checkout@v4
@@ -25,24 +30,21 @@ jobs:
         run: cd backend && go get .
 
       - name: Build
-        run: cd backend && go build -o deploy
+        run: cd backend && go build
 
-      - name: Commit and Push
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add -A
-          git commit -m "build"
-          git push -f origin HEAD:deploy
+      - uses: actions/upload-artifact@v4
+        with:
+          name: blog
+          path: backend/blog
 
-  Upload:
+  upload:
     runs-on: ubuntu-latest
     name: Upload to S3
-    needs: BuildAndPush
+    environment: production
+    needs:
+      - build
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: deploy
 
       - name: 🔑 Setup AWS Credentials
         uses: ./.github/actions/configure-aws-credentials
@@ -53,5 +55,13 @@ jobs:
       - name: 🧪 install AWS CLI
         uses: ./.github/actions/install-aws-cli
 
-      - name: 🔥 Execute AWS command to upload to S3
-        run: ${{ secrets.COMMAND_TO_UPLOAD }}
+      - uses: actions/download-artifact@v4
+        with:
+          path: blog
+
+      - name: 🔥 Upload builded files to S3
+        uses: ./.github/actions/upload-to-S3
+        with:
+          file_name: blog/blog
+          s3_bucket_name: ${{ secrets.S3_BUCKET_NAME }}
+          s3_bucket_key: blog

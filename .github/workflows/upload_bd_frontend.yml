@@ -19,7 +19,7 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Build frontend files
+    name: Build
     environment: production
     steps:
       - uses: actions/checkout@v4
@@ -29,9 +29,11 @@ jobs:
         with:
           node-version: '20.12.2'
 
-      - run: cd frontend && npm install
+      - name: Install dependencies
+        run: cd frontend && npm install
 
-      - run: cd frontend && npm run build:prod
+      - name: Build
+        run: cd frontend && npm run build:prod
 
       - uses: actions/upload-artifact@v4
         with:
@@ -61,7 +63,6 @@ jobs:
           path: dist
 
       - name: 🔥 Upload builded files to S3
-        id: upload
         uses: ./.github/actions/upload-to-S3
         with:
           file_name: dist/dist
