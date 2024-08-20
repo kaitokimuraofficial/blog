@@ -65,5 +65,5 @@ jobs:
         uses: ./.github/actions/upload-to-S3
         with:
           file_name: dist/dist
-          s3_bucket_name: ${{ secrets.ENV_IMAGE_URL }}
+          s3_bucket_name: ${{ secrets.S3_BUCKET_NAME }}
           s3_bucket_key: dist
