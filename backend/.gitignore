@@ -1,2 +1,4 @@
 tmp
 app
+.env
+.env.prod
