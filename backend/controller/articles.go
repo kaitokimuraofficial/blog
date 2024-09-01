@@ -2,7 +2,7 @@ package controller
 
 import (
 	"blog/store"
-	"blog/util"
+	"blog/jsonresponse"
 	"fmt"
 	"net/http"
 
@@ -21,7 +21,7 @@ func (at *ArticleHandler) GetArticle(w http.ResponseWriter, r *http.Request) {
 		fmt.Printf("failed to exec Service.GetArticle: %v", err)
 	}
 
-	if err = util.WriteJSONResponse(w, a); err != nil {
+	if err = jsonresponse.Write(w, a); err != nil {
 		fmt.Printf("%v", err)
 	}
 }
@@ -32,7 +32,7 @@ func (at *ArticleHandler) GetArticles(w http.ResponseWriter, r *http.Request) {
 		fmt.Printf("failed to exec Service.GetArticles: %v", err)
 	}
 
-	if err = util.WriteJSONResponse(w, as); err != nil {
+	if err = jsonresponse.Write(w, as); err != nil {
 		fmt.Printf("%v", err)
 	}
 }

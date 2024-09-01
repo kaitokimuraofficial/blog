@@ -1,4 +1,4 @@
-package util
+package jsonresponse
 
 import (
 	"encoding/json"
@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-func WriteJSONResponse(w http.ResponseWriter, a interface{}) error {
+func Write(w http.ResponseWriter, a interface{}) error {
 	aj, err := json.Marshal(a)
 	if err != nil {
 		return fmt.Errorf("failed to encode to JSON: %v", err)

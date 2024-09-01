@@ -1,4 +1,4 @@
-package util
+package jsonresponse
 
 import (
 	"net/http"
@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func TestWriteJSONResponse(t *testing.T) {
+func TestWrite(t *testing.T) {
 	tests := []struct {
 		name           string
 		input          interface{}
@@ -33,20 +33,20 @@ func TestWriteJSONResponse(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			rr := httptest.NewRecorder()
-			err := WriteJSONResponse(rr, tt.input)
+			err := Write(rr, tt.input)
 
 			if (err != nil) != tt.expectError {
-				t.Errorf("WriteJSONResponse() error = %v, expectError %v", err, tt.expectError)
+				t.Errorf("Write() error = %v, expectError %v", err, tt.expectError)
 				return
 			}
 
 			if !tt.expectError {
 				if status := rr.Code; status != tt.expectedStatus {
-					t.Errorf("WriteJSONResponse() status = %v, expectedStatus %v", status, tt.expectedStatus)
+					t.Errorf("Write() status = %v, expectedStatus %v", status, tt.expectedStatus)
 				}
 
 				if body := rr.Body.String(); body != tt.expectedBody {
-					t.Errorf("WriteJSONResponse() body = %v, expectedBody %v", body, tt.expectedBody)
+					t.Errorf("Write() body = %v, expectedBody %v", body, tt.expectedBody)
 				}
 			}
 		})
