@@ -22,15 +22,20 @@ jobs:
     environment: production
     steps:
       - uses: actions/checkout@v4
+        with:
+          sparse-checkout: backend
+
       - uses: actions/setup-go@v5
         with:
           go-version: '1.22.0'
     
       - name: Install dependencies
-        run: cd backend && go get .
+        working-directory: backend
+        run: go get .
 
       - name: Build
-        run: cd backend && go build
+        working-directory: backend
+        run: go build
 
       - uses: actions/upload-artifact@v4
         with:

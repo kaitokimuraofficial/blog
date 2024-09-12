@@ -23,6 +23,8 @@ jobs:
     environment: production
     steps:
       - uses: actions/checkout@v4
+        with:
+          sparse-checkout: frontend
 
       - name: Use Node.js
         uses: actions/setup-node@v4
@@ -30,10 +32,12 @@ jobs:
           node-version: '20.12.2'
 
       - name: Install dependencies
-        run: cd frontend && npm install
+        working-directory: frontend
+        run: npm install
 
       - name: Build
-        run: cd frontend && npm run build:prod
+        working-directory: frontend
+        run: npm run build:prod
 
       - uses: actions/upload-artifact@v4
         with:
