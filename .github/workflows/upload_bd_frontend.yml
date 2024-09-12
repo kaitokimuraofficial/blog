@@ -24,7 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          path: frontend
+          sparse-checkout: frontend
 
       - name: Use Node.js
         uses: actions/setup-node@v4
@@ -32,9 +32,11 @@ jobs:
           node-version: '20.12.2'
 
       - name: Install dependencies
+        working-directory: frontend
         run: npm install
 
       - name: Build
+        working-directory: frontend
         run: npm run build:prod
 
       - uses: actions/upload-artifact@v4
