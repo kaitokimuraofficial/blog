@@ -70,4 +70,4 @@ jobs:
         with:
           file_name: blog/blog
           s3_bucket_name: ${{ secrets.S3_BUCKET_NAME }}
-          s3_bucket_key: blog
+          s3_bucket_key: revision/backend/
