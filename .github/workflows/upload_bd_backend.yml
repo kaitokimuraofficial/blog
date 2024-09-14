@@ -71,3 +71,9 @@ jobs:
           file_name: blog/blog
           s3_bucket_name: ${{ secrets.S3_BUCKET_NAME }}
           s3_bucket_key: revision/backend/
+
+  actions-timeline:
+    needs: [build, upload]
+    runs-on: ubuntu-latest
+    steps:
+    - uses: Kesin11/actions-timeline@v2
