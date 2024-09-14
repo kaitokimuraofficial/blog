@@ -19,7 +19,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     name: Build
-    environment: production
+    environment:
+      name: production
     steps:
       - uses: actions/checkout@v4
         with:
