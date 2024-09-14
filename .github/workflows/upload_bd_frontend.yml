@@ -36,6 +36,13 @@ jobs:
         working-directory: frontend
         run: npm install
 
+      - name: Create dot env file
+        shell: bash
+        run: |
+          touch frontend/.env.production
+          echo "ENV_IMAGE_URL=${{ secrets.ENV_IMAGE_URL }}" >> frontend/.env.production
+          echo "ENV_PROXY_API_URL=${{ secrets.ENV_PROXY_API_URL }}" >> frontend/.env.production
+
       - name: Build
         working-directory: frontend
         run: npm run build:prod
