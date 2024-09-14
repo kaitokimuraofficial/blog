@@ -24,7 +24,7 @@ type Config struct {
 func New() (*Config, error) {
 	cfg := &Config{}
 
-	err := godotenv.Load(".env")
+	err := godotenv.Load("env")
 	if err != nil {
 		fmt.Printf("読み込み出来ませんでした: %v", err)
 	}
