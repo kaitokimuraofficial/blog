@@ -1,4 +1,5 @@
 # Blog
+(注: 日本語版のREADMEを見たい方は[こちら](https://github.com/kaitokimuraofficial/blog/blob/main/README.ja.md)をご覧ください)
 
 - Website: http://www.kaitokimura.com/
 
@@ -28,6 +29,13 @@ We use [`Golang`](https://go.dev/doc/) as backend. The reasons for choice are fo
 
 
 
-## As portfolio
+## For Developers and HR manager (in Process of Job Interview)
+If you want to see how this application works in your desktop in details, follow these steps,
 
+```md
+1. Open Docker in your desktop
+2. At root directory, execute `Make up`
+3. After a few seconds, you can see the website launched by this application at [`localhost:3000`](http://localhost:3000)
+```
 
+Again, the application is running in the production environment at [`kaitokimura.com`](https:www.kaitokimura.com).
