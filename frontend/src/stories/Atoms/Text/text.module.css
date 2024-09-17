@@ -1,0 +1,15 @@
+@import url(../../index.css);
+
+.highlight {
+  display: inline;
+  background: linear-gradient(transparent 40%, yellow 40%);
+}
+
+.bold {
+  font-weight: bold;
+}
+
+body {
+  color: var(--main-white-color);
+  font-family: var(--main-font);
+}
