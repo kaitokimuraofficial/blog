@@ -1,13 +1,14 @@
 import styled from 'styled-components';
-import { FooterNavigationElement } from './footerNavigation';
+import { NavigationList } from 'src/stories/Molecules/NavigationList';
+import { Text } from 'src/stories/Atoms/Text';
 
 export function Footer() {
   return (
     <FooterOuter>
       <NavigationOuter>
-        <FooterNavigationElement
+        <NavigationList
           title="Page Map"
-          lists={[
+          items={[
             {
               key: 'About',
               url: '/about',
@@ -18,9 +19,9 @@ export function Footer() {
             },
           ]}
         />
-        <FooterNavigationElement
+        <NavigationList
           title="Links"
-          lists={[
+          items={[
             {
               key: 'GitHub',
               url: 'https://github.com/kaitokimuraofficial',
@@ -36,7 +37,7 @@ export function Footer() {
           ]}
         />
       </NavigationOuter>
-      <LicenseWrapper>Made by @kaitokimuraofficial</LicenseWrapper>
+      <Text content="Made by @kaitokimuraofficial" isBold={true} color="GRAY" />
     </FooterOuter>
   );
 }
@@ -52,13 +53,4 @@ const NavigationOuter = styled.div`
   display: flex;
   flex-direction: row;
   gap: 40px;
-  justify-content: left;
-`;
-
-const LicenseWrapper = styled.div`
-  color: gray;
-  display: flex;
-  font-weight: bold;
-  height: 20px;
-  justify-content: center;
 `;

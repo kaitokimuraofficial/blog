@@ -52,13 +52,13 @@ const BodyWrapper = styled.div`
   justify-items: center;
 `;
 
-const props = {
-  content: <CareerBody />,
-  height: 700,
-  jc: 'center',
-  title: 'Career',
-};
-
 export function Career() {
-  return <AboutOuterLayout {...props} />;
+  return (
+    <AboutOuterLayout
+      content={<CareerBody />}
+      height={700}
+      jc="center"
+      title="Career"
+    />
+  );
 }

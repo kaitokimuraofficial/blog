@@ -1,28 +1,26 @@
-/* Library */
 import styled from 'styled-components';
-
-/* Component */
-import { AboutOuterLayout, SkillsOuterLayout } from '../shared';
+import { AboutOuterLayout } from '../shared';
+import { ContentCard } from 'src/stories/Molecules/ContentCard';
 
 const SkillLists = () => {
   return (
     <SkillOuter>
-      <SkillsOuterLayout
+      <ContentCard
         content="インターンでの開発経験があります。"
         imgUrl="icons/ruby.svg"
         title="Ruby"
       />
-      <SkillsOuterLayout
+      <ContentCard
         content="競技プログラミングではPythonを使用しています。"
         imgUrl="icons/python.svg"
         title="Python"
       />
-      <SkillsOuterLayout
+      <ContentCard
         content="インターンでの開発経験があります。"
         imgUrl="icons/typescript.svg"
         title="TypeScript"
       />
-      <SkillsOuterLayout
+      <ContentCard
         content="このWebサイトのバックエンドをGoで実装しました。"
         imgUrl="icons/golang.svg"
         title="Golang"
@@ -41,12 +39,8 @@ const SkillOuter = styled.div`
   justify-items: center;
 `;
 
-const props = {
-  content: <SkillLists />,
-  height: 600,
-  title: 'My Skills',
-};
-
 export function MySkills() {
-  return <AboutOuterLayout {...props} />;
+  return (
+    <AboutOuterLayout content={<SkillLists />} height={600} title="My Skills" />
+  );
 }

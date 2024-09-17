@@ -5,7 +5,7 @@ type Prop = {
   isHighlighted?: boolean;
   isBold?: boolean;
   size?: 'LARGE' | 'NORMAL' | 'SMALL';
-  color?: 'BLACK' | 'WHITE';
+  color?: 'BLACK' | 'WHITE' | 'GRAY';
 };
 
 export const Text = ({
@@ -28,8 +28,19 @@ export const Text = ({
   const fontSize =
     size === 'LARGE' ? '24px' : size === 'SMALL' ? '12px' : '16px';
 
-  const textColor =
-    color === 'BLACK' ? 'var(--main-black-color)' : 'var(--main-white-color)';
+  let textColor = '';
+
+  switch (color) {
+    case 'BLACK':
+      textColor = 'var(--main-black-color)';
+      break;
+    case 'GRAY':
+      textColor = 'var(--main-gray-color)';
+      break;
+    default:
+      textColor = 'var(--main-white-color)';
+      break;
+  }
 
   return (
     <p className={classNames.join(' ')} style={{ fontSize, color: textColor }}>

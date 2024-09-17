@@ -21,8 +21,8 @@ export function ArticleList({ articles }: Prop) {
         <li key={articleId}>
           <Link to={`/articles/${articleId}`}>
             <ArticleContainerDiv>
-              <Text content={title} isBold={true} size="LARGE" />
-              <Text content={body} />
+              <Text content={title} isBold={true} size="LARGE" color="BLACK" />
+              <Text content={body} color="BLACK" />
             </ArticleContainerDiv>
           </Link>
         </li>
