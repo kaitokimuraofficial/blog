@@ -1,9 +1,9 @@
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { About } from './routes/about';
+import { About } from './stories/Templates/About';
+import { Blog } from './stories/Templates/Blog';
 import { Article } from './routes/article';
 import { ArticleEdit } from './routes/articleEdit';
-import { Blogs } from './routes/blogs';
 import { Root } from './routes/root';
 
 import ErrorPage from './error-page';
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'blog',
-        element: <Blogs />,
+        element: <Blog />,
         loader: BlogsLoader,
         action: BlogsAction,
       },

@@ -35,7 +35,7 @@ const SkillOuter = styled.div`
   grid-template-columns: 20rem 20rem;
   grid-row: auto auto;
   grid-column-gap: 4.5rem;
-  grid-row-gap: 4.5rem;
+  grid-row-gap: 2rem;
   justify-items: center;
 `;
 

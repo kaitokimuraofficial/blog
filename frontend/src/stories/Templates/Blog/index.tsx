@@ -10,7 +10,7 @@ type ArticleProp = {
   lastModified: Date;
 };
 
-export function Blogs() {
+export const Blog = () => {
   const articles = useLoaderData() as ArticleProp[];
 
   return (
@@ -19,4 +19,4 @@ export function Blogs() {
       <ArticleList articles={articles} />
     </>
   );
-}
+};

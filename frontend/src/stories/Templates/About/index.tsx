@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import {
   AboutHeader,
   Career,
@@ -7,16 +6,14 @@ import {
   Profile,
 } from 'src/components/About';
 
-export function About() {
+export const About = () => {
   return (
-    <AboutOuter>
+    <>
       <AboutHeader />
       <Profile />
       <Career />
       <MySkills />
       <Portfolio />
-    </AboutOuter>
+    </>
   );
-}
-
-const AboutOuter = styled.div``;
+};
