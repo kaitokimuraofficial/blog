@@ -23,11 +23,10 @@ const PortfolioElement = () => {
     <PortfolioElementOuter>
       <PortfolioElementHeader>This website</PortfolioElementHeader>
       <PortfolioElementBody>
-        Leverage agile frameworks to provide a robust synopsis for high level
-        overviews. Iterative approaches to corporate strategy foster
-        collaborative thinking to further the overall value proposition.
-        Organically grow the holistic world view of disruptive innovation via
-        workplace diversity and empowerment. Thank you.
+        バックエンドにGo,フロントエンドにTypeScriptを使用しています。
+        クラウドサービスとしてAWSを使っており、Terraformでインフラを管理しています。
+        このサイトのコードはアプリケーション部分が https://github.com/kaitokimuraofficial/blog で、
+        インフラを管理しているTerraformのコードは https://github.com/kaitokimuraofficial/blog-infra です。
       </PortfolioElementBody>
     </PortfolioElementOuter>
   );
@@ -37,7 +36,7 @@ const PortfolioElementOuter = styled.div`
   display: flex;
   flex-direction: column;
   height: 80%;
-  width: 40%;
+  width: 80%;
   border: 1px bold;
   border-color: black;
 `;
