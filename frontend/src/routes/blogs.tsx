@@ -1,11 +1,7 @@
-/* Library */
 import { useLoaderData } from 'react-router-dom';
-
-/* Component */
 import { ArticleList } from 'src/components/Blog';
 import { Text } from 'src/stories/Atoms/Text';
 
-/* Types */
 type ArticleProp = {
   articleId: number;
   title: string;

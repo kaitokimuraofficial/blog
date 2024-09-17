@@ -1,8 +1,4 @@
-/* Library */
 import styled from 'styled-components';
-// import { useLoaderData } from 'react-router';
-
-/* Component */
 import {
   AboutHeader,
   Career,
@@ -12,9 +8,6 @@ import {
 } from 'src/components/About';
 
 export function About() {
-  // const data = useLoaderData() as a
-  // console.log(data.movies.greeting);
-
   return (
     <AboutOuter>
       <AboutHeader />

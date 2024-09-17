@@ -1,4 +1,3 @@
-/* Library */
 import styled from 'styled-components';
 import { Logo } from 'src/stories/Atoms/Logo';
 import { Text } from 'src/stories/Atoms/Text';

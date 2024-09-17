@@ -1,7 +1,4 @@
-/* Library */
 import styled from 'styled-components';
-
-/* Component */
 import { Text } from 'src/stories/Atoms/Text';
 
 export function AboutHeader() {

@@ -1,4 +1,3 @@
-/* Library */
 import styled from 'styled-components';
 
 type listType = {

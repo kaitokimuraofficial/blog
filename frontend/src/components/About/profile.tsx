@@ -1,7 +1,4 @@
-/* Library */
 import styled from 'styled-components';
-
-/* Component */
 import { AboutOuterLayout } from '../shared';
 import { Text } from 'src/stories/Atoms/Text';
 

@@ -1,8 +1,5 @@
-/* Library */
 import styled from 'styled-components';
 import { Outlet } from 'react-router-dom';
-
-/* Component */
 import { Header, Footer } from 'src/components/shared';
 
 export function Root() {

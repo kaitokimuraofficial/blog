@@ -1,7 +1,4 @@
-/* Library */
 import styled from 'styled-components';
-
-/* Component */
 import { AboutOuterLayout } from '../shared';
 
 export function Lists() {
@@ -10,7 +7,7 @@ export function Lists() {
 
 const props = {
   content: <Lists />,
-  height: 600,
+  height: 300,
   title: 'Portfolio',
 };
 

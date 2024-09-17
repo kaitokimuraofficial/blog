@@ -1,8 +1,5 @@
-/* Library */
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-
-/* Component */
 import { About } from './routes/about';
 import { Article } from './routes/article';
 import { ArticleEdit } from './routes/articleEdit';

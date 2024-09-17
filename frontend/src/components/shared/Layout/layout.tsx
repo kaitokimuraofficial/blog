@@ -1,6 +1,4 @@
-/* Library */
 import styled from 'styled-components';
-
 import { Truncate } from 'src/util/truncate';
 
 type Props = {

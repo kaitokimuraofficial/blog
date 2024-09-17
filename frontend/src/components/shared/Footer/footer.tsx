@@ -1,12 +1,5 @@
-/* Library */
 import styled from 'styled-components';
 import { FooterNavigationElement } from './footerNavigation';
-
-// import { useTranslator } from '../../../hooks';
-
-// const t = useTranslator('AboutHeader');
-
-// console.log(t('title'));
 
 export function Footer() {
   return (
