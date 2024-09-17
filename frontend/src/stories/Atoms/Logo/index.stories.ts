@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Logo } from './logo';
+import { Logo } from '.';
 
 const meta = {
   title: 'Atoms/Logo',
@@ -13,7 +13,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    href: 'https://github.com/kaitokimuraofficial',
     src: 'icons/github.svg',
   },
 };

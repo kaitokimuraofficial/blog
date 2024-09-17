@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 /* Component */
 import { AboutOuterLayout } from '../shared';
-import { Text } from 'src/stories/Atoms/Text/text';
+import { Text } from 'src/stories/Atoms/Text';
 
 export function Base() {
   const key = import.meta.env.ENV_IMAGE_URL;

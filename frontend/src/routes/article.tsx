@@ -1,6 +1,6 @@
 import { useLoaderData } from 'react-router-dom';
 import { Markdown } from 'src/util/markdown';
-import { Text } from 'src/stories/Atoms/Text/text';
+import { Text } from 'src/stories/Atoms/Text';
 
 type Prop = {
   articleId: number;

@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 /* Component */
-import { Text } from 'src/stories/Atoms/Text/text';
+import { Text } from 'src/stories/Atoms/Text';
 
 export function AboutHeader() {
   const key = import.meta.env.ENV_IMAGE_URL;

@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 /* Component */
 import { AboutOuterLayout } from '../shared';
-import { Logo } from 'src/stories/Atoms/Logo/logo';
-import { Text } from 'src/stories/Atoms/Text/text';
+import { Logo } from 'src/stories/Atoms/Logo';
+import { Text } from 'src/stories/Atoms/Text';
 
 const CareerBody = () => {
   return (

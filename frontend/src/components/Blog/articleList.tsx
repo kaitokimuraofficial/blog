@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Text } from 'src/stories/Atoms/Text/text';
+import { Text } from 'src/stories/Atoms/Text';
 import styled from 'styled-components';
 
 type articleType = {
