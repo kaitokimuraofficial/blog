@@ -1,9 +1,14 @@
 /* Library */
 import styled from 'styled-components';
 
+type listProp = {
+  key: string,
+  url: string
+}
+
 type Props = {
   title: string;
-  lists: string[];
+  lists: listProp[];
 };
 
 export function FooterNavigationElement({ title, lists }: Props) {
@@ -11,8 +16,10 @@ export function FooterNavigationElement({ title, lists }: Props) {
     <NavElementWrapper>
       <H1>{title}</H1>
       <ul>
-        {lists.map((list) => (
-          <Li key={list}>{list}</Li>
+        {lists.map((item) => (
+          <Li key={item.key}>
+            <a href={item.url}>{item.key}</a>
+          </Li>
         ))}
       </ul>
     </NavElementWrapper>
