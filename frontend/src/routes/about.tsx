@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import {
   AboutHeader,
   Career,
-  ContactMe,
   MySkills,
   Portfolio,
   Profile,
@@ -23,7 +22,6 @@ export function About() {
       <Career />
       <MySkills />
       <Portfolio />
-      <ContactMe />
     </AboutOuter>
   );
 }

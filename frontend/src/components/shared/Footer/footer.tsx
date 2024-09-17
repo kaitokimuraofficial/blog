@@ -12,10 +12,38 @@ export function Footer() {
   return (
     <FooterOuter>
       <NavigationOuter>
-        <FooterNavigation />
-        <FooterContact />
+        <FooterNavigationElement
+          title="Page Map"
+          lists={[
+            {
+              key: 'About',
+              url: '/about',
+            },
+            {
+              key: 'Blog',
+              url: '/blog',
+            },
+          ]}
+        />
+        <FooterNavigationElement
+          title="Links"
+          lists={[
+            {
+              key: 'GitHub',
+              url: 'https://github.com/kaitokimuraofficial',
+            },
+            {
+              key: 'LinkedIn',
+              url: 'https://www.linkedin.com/in/kaito-kimura-03b88b21a/',
+            },
+            {
+              key: 'X',
+              url: 'https://x.com/Kai64054934',
+            },
+          ]}
+        />
       </NavigationOuter>
-      <License />
+      <LicenseWrapper>Made by @kaitokimuraofficial</LicenseWrapper>
     </FooterOuter>
   );
 }
@@ -41,42 +69,3 @@ const LicenseWrapper = styled.div`
   height: 20px;
   justify-content: center;
 `;
-
-const Navigation = {
-  title: 'Navigation',
-  lists: [
-    {
-      key: 'About',
-      url: "/about"
-    },
-    {
-      key: 'Blog',
-      url: '/blog'
-    },
-  ]
-};
-
-const Contact = {
-  title: 'Contact',
-  lists: [
-    {
-      key: 'GitHub',
-      url: 'https://github.com/kaitokimuraofficial',
-    },
-    {
-      key: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/kaito-kimura-03b88b21a/',
-    },
-    {
-      key: 'X',
-      url: 'https://x.com/Kai64054934'
-    }
-  ],
-};
-
-const FooterContact = () => FooterNavigationElement(Contact);
-const FooterNavigation = () => FooterNavigationElement(Navigation);
-
-const License = () => {
-  return <LicenseWrapper>Made by @kaitokimuraofficial</LicenseWrapper>;
-};

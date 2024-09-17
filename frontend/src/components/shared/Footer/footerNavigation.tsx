@@ -1,14 +1,14 @@
 /* Library */
 import styled from 'styled-components';
 
-type listProp = {
-  key: string,
-  url: string
-}
+type listType = {
+  key: string;
+  url: string;
+};
 
 type Props = {
   title: string;
-  lists: listProp[];
+  lists: listType[];
 };
 
 export function FooterNavigationElement({ title, lists }: Props) {
@@ -17,9 +17,9 @@ export function FooterNavigationElement({ title, lists }: Props) {
       <H1>{title}</H1>
       <ul>
         {lists.map((item) => (
-          <Li key={item.key}>
+          <li key={item.key} style={{ listStyle: 'none' }}>
             <a href={item.url}>{item.key}</a>
-          </Li>
+          </li>
         ))}
       </ul>
     </NavElementWrapper>
@@ -38,8 +38,4 @@ const H1 = styled.h1`
   font-size: 25px;
   margin: 0;
   padding-left: 20px;
-`;
-
-const Li = styled.li`
-  list-style: none;
 `;

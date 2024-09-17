@@ -1,6 +1,6 @@
 import { useLoaderData } from 'react-router-dom';
-import { ArticleBody } from 'src/components/Blog/articleBody';
-import { ArticleTitle } from 'src/components/Blog/articleTitle';
+import { Markdown } from 'src/util/markdown';
+import { Text } from 'src/stories/Atoms/Text/text';
 
 type Prop = {
   articleId: number;
@@ -15,8 +15,8 @@ export function Article() {
 
   return (
     <>
-      <ArticleTitle title={article.title} />
-      <ArticleBody body={article.body} />
+      <Text content={article.title} />
+      <Markdown body={article.body} />
     </>
   );
 }

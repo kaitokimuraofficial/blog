@@ -1,6 +1,8 @@
-import { ArticleContainer } from './articleContainer';
+import { Link } from 'react-router-dom';
+import { Text } from 'src/stories/Atoms/Text/text';
+import styled from 'styled-components';
 
-type ArticleProp = {
+type articleType = {
   articleId: number;
   title: string;
   body: string;
@@ -8,18 +10,34 @@ type ArticleProp = {
   lastModified: Date;
 };
 
-type Props = {
-  articles: ArticleProp[];
+type Prop = {
+  articles: articleType[];
 };
 
-export function ArticleList({ articles }: Props) {
+export function ArticleList({ articles }: Prop) {
   return (
     <ol style={{ listStyleType: 'none' }}>
       {articles.map(({ articleId, title, body }) => (
         <li key={articleId}>
-          <ArticleContainer id={articleId} title={title} body={body} />
+          <Link to={`/articles/${articleId}`}>
+            <ArticleContainerDiv>
+              <Text content={title} isBold={true} size="LARGE" />
+              <Text content={body} />
+            </ArticleContainerDiv>
+          </Link>
         </li>
       ))}
     </ol>
   );
 }
+
+const ArticleContainerDiv = styled.div`
+  color: #000;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 20px auto;
+`;

@@ -2,6 +2,7 @@
 import styled from 'styled-components';
 
 /* Component */
+import { Text } from 'src/stories/Atoms/Text/text';
 
 export function AboutHeader() {
   const key = import.meta.env.ENV_IMAGE_URL;
@@ -10,9 +11,15 @@ export function AboutHeader() {
     <AboutHeaderOuter>
       <AboutHeaderWrapper>
         <Greeting />
-        <Img src={`${key}/man-using-pc.svg`} />
+        <img
+          src={`${key}/man-using-pc.svg`}
+          style={{ height: '300px', width: '300px' }}
+        />
       </AboutHeaderWrapper>
-      <Img2 src={`${key}/wave-bg.svg`} />
+      <img
+        src={`${key}/wave-bg.svg`}
+        style={{ width: '1000px', zIndex: 1000 }}
+      />
     </AboutHeaderOuter>
   );
 }
@@ -33,22 +40,16 @@ const AboutHeaderWrapper = styled.div`
   width: 1000px;
 `;
 
-const Img = styled.img`
-  height: 300px;
-  width: 300px;
-`;
-
-const Img2 = styled.img`
-  width: 1000px;
-  z-index: 1000;
-`;
-
 const Greeting = () => {
   return (
     <GreetingOuter>
-      <h3>Hello World</h3>
-      <h4>I'm Kaito Kimura</h4>
-      <h4>College Student and Web Engineer</h4>
+      <Text content="Hello World!" isBold={true} size="LARGE" />
+      <Text content="I'm Kaito Kimura" isBold={true} size="LARGE" />
+      <Text
+        content="College Student and Software Engineer"
+        isBold={true}
+        size="LARGE"
+      />
     </GreetingOuter>
   );
 };

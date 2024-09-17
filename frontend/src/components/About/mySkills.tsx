@@ -7,10 +7,26 @@ import { AboutOuterLayout, SkillsOuterLayout } from '../shared';
 const SkillLists = () => {
   return (
     <SkillOuter>
-      <Ruby />
-      <Python />
-      <TypeScript />
-      <Golang />
+      <SkillsOuterLayout
+        content="インターンでの開発経験があります。"
+        imgUrl="icons/ruby.svg"
+        title="Ruby"
+      />
+      <SkillsOuterLayout
+        content="競技プログラミングではPythonを使用しています。"
+        imgUrl="icons/python.svg"
+        title="Python"
+      />
+      <SkillsOuterLayout
+        content="インターンでの開発経験があります。"
+        imgUrl="icons/typescript.svg"
+        title="TypeScript"
+      />
+      <SkillsOuterLayout
+        content="このWebサイトのバックエンドをGoで実装しました。"
+        imgUrl="icons/golang.svg"
+        title="Golang"
+      />
     </SkillOuter>
   );
 };
@@ -24,40 +40,6 @@ const SkillOuter = styled.div`
   grid-row-gap: 4.5rem;
   justify-items: center;
 `;
-
-const key = import.meta.env.ENV_IMAGE_URL;
-
-const rubyProp = {
-  title: 'Ruby',
-  content: 'Qiitaにてrubyでの開発経験があります。',
-  icon: `${key}/icons/ruby.svg`,
-};
-
-const Ruby = () => SkillsOuterLayout(rubyProp);
-
-const pythonProp = {
-  title: 'Python',
-  content: '競技プログラミングではPythonを使用しています',
-  icon: `${key}/icons/python.svg`,
-};
-
-const Python = () => SkillsOuterLayout(pythonProp);
-
-const typeScriptProp = {
-  title: 'TypeScript',
-  content: 'このブログのフロントもTypeScriptで書きました',
-  icon: `${key}/icons/typescript.svg`,
-};
-
-const TypeScript = () => SkillsOuterLayout(typeScriptProp);
-
-const golangProp = {
-  title: 'Golang',
-  content: 'このブログもGo言語で書きました',
-  icon: `${key}/icons/golang.svg`,
-};
-
-const Golang = () => SkillsOuterLayout(golangProp);
 
 const props = {
   content: <SkillLists />,

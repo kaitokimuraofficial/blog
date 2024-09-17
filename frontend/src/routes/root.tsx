@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Outlet } from 'react-router-dom';
 
 /* Component */
-import { Header, Footer, ScrollTop } from 'src/components/shared';
+import { Header, Footer } from 'src/components/shared';
 
 export function Root() {
   return (
@@ -11,7 +11,6 @@ export function Root() {
       <Header />
       <Outlet />
       <Footer />
-      <ScrollTop />
     </ContentContainer>
   );
 }

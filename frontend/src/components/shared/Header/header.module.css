@@ -1,0 +1,9 @@
+@import url(../../../stories/index.css);
+
+.link {
+  color: var(--main-white-color);
+  :hover {
+    color: var(--main-white-color);
+    cursor: pointer;
+  }
+}

@@ -1,9 +1,9 @@
 /* Library */
-import styled from 'styled-components';
 import { useLoaderData } from 'react-router-dom';
 
 /* Component */
-import { ArticleList, BlogHeader } from 'src/components/Blog';
+import { ArticleList } from 'src/components/Blog';
+import { Text } from 'src/stories/Atoms/Text/text';
 
 /* Types */
 type ArticleProp = {
@@ -18,11 +18,9 @@ export function Blogs() {
   const articles = useLoaderData() as ArticleProp[];
 
   return (
-    <BlogOuter>
-      <BlogHeader />
+    <>
+      <Text content="Blog" isBold={true} size="LARGE" />
       <ArticleList articles={articles} />
-    </BlogOuter>
+    </>
   );
 }
-
-const BlogOuter = styled.div``;

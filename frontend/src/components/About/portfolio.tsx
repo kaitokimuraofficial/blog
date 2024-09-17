@@ -25,8 +25,10 @@ const PortfolioElement = () => {
       <PortfolioElementBody>
         バックエンドにGo,フロントエンドにTypeScriptを使用しています。
         クラウドサービスとしてAWSを使っており、Terraformでインフラを管理しています。
-        このサイトのコードはアプリケーション部分が https://github.com/kaitokimuraofficial/blog で、
-        インフラを管理しているTerraformのコードは https://github.com/kaitokimuraofficial/blog-infra です。
+        このサイトのコードはアプリケーション部分が
+        https://github.com/kaitokimuraofficial/blog で、
+        インフラを管理しているTerraformのコードは
+        https://github.com/kaitokimuraofficial/blog-infra です。
       </PortfolioElementBody>
     </PortfolioElementOuter>
   );

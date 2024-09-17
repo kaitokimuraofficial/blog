@@ -1,8 +1,9 @@
 /* Library */
 import styled from 'styled-components';
+import { Logo } from 'src/stories/Atoms/Logo/logo';
+import { Text } from 'src/stories/Atoms/Text/text';
 
-/* Component */
-import { Blog, About, GH, LinkedIn } from '.';
+import styles from './header.module.css';
 
 export function Header() {
   return (
@@ -10,12 +11,23 @@ export function Header() {
       <Title>Kai BLOG</Title>
       <Right>
         <ColumnLeft>
-          <Blog />
-          <About />
+          <a className={styles.link} href="/about" target="_top">
+            <Text content={'About'} isBold={true} size="LARGE" />
+          </a>
+          <a className={styles.link} href="/blog" target="_top">
+            <Text content={'Blog'} isBold={true} size="LARGE" />
+          </a>
         </ColumnLeft>
         <ColumnRight>
-          <GH />
-          <LinkedIn />
+          <a href="https://github.com/kaitokimuraofficial" target="_blank">
+            <Logo src={'icons/github.svg'} size="LARGE" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/kaito-kimura-03b88b21a/"
+            target="_blank"
+          >
+            <Logo src={'icons/linkedin.svg'} size="LARGE" />
+          </a>
         </ColumnRight>
       </Right>
     </Outer>

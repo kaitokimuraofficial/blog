@@ -1,20 +1,22 @@
 /* Library */
 import styled from 'styled-components';
+import { Logo } from 'src/stories/Atoms/Logo/logo';
+import { Text } from 'src/stories/Atoms/Text/text';
 
 type Props = {
   content: string;
-  icon: string;
+  imgUrl: string;
   title: string;
 };
 
-export function SkillsOuterLayout({ content, icon, title }: Props) {
+export function SkillsOuterLayout({ content, imgUrl, title }: Props) {
   return (
     <SkillsOuter>
       <TitleWrapper>
-        <img src={icon} height="3rem" width="3rem" />
-        <H3>{title}</H3>
+        <Logo src={imgUrl} size="SMALL" />
+        <Text content={title} isBold={true} size="LARGE" />
       </TitleWrapper>
-      <H4>{content}</H4>
+      <Text content={content} />
     </SkillsOuter>
   );
 }
@@ -28,16 +30,7 @@ const SkillsOuter = styled.div`
 const TitleWrapper = styled.div`
   align-items: center;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-start;
   gap: 2rem;
-  margin-bottom: 2rem;
-`;
-
-const H3 = styled.h3`
-  color: var(--black);
-`;
-
-const H4 = styled.h4`
-  color: var(--black);
 `;
