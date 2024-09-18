@@ -5,6 +5,7 @@ type CardType = {
   title: string;
   imgUrl: string;
   content: string;
+  color?: 'BLACK' | 'WHITE';
 };
 
 type Prop = {
@@ -20,6 +21,7 @@ export const CardGrid = ({ cards }: Prop) => {
           content={card.content}
           imgUrl={card.imgUrl}
           title={card.title}
+          color={card.color ?? 'BLACK'}
         />
       ))}
     </div>

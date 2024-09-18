@@ -1,12 +1,12 @@
 import { Portfolio, Profile } from 'src/components/About';
-import { Header } from 'src/stories/Molecules/Header';
+import { SubHeader } from 'src/stories/Molecules/SubHeader';
 import { SectionUnit } from 'src/stories/Molecules/SectionUnit';
 import { CardGrid } from 'src/stories/Molecules/CardGrid';
 
 export const About = () => {
   return (
     <>
-      <Header />
+      <SubHeader />
       <Profile />
       <SectionUnit
         content={<CareerBody />}
