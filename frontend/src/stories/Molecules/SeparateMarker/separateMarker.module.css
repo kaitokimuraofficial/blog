@@ -1,0 +1,19 @@
+@import url(../../index.css);
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+  margin-bottom: 2rem;
+}
+
+.title {
+  color: var(--main-white-color);
+  display: flex;
+  flex-direction: row;
+  font-weight: bold;
+  justify-content: center;
+  position: relative;
+  vertical-align: middle;
+}
