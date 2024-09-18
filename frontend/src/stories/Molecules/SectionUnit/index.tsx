@@ -1,7 +1,5 @@
-/* Library */
 import styled from 'styled-components';
-
-import { Truncate } from 'src/util/truncate';
+import { SeparateMarker } from 'src/stories/Molecules/SeparateMarker';
 
 type Props = {
   content: JSX.Element;
@@ -11,19 +9,14 @@ type Props = {
   title: string;
 };
 
-export function AboutOuterLayout({ content, height, jc, pt, title }: Props) {
-  const id = Truncate(title);
-  const key = import.meta.env.ENV_IMAGE_URL;
+export const SectionUnit = ({ content, height, jc, pt, title }: Props) => {
   return (
     <AboutHeaderOuter height={height} pt={pt}>
-      <TitleWrapper>
-        <Title id={id}>{title}</Title>
-        <img src={`${key}/marker.svg`} height={'20px'} />
-      </TitleWrapper>
+      <SeparateMarker title={title} />
       <BodyWrapper jc={jc}>{content}</BodyWrapper>
     </AboutHeaderOuter>
   );
-}
+};
 
 const AboutHeaderOuter = styled.div<{ height: number; pt?: number }>`
   align-items: center;
@@ -33,24 +26,6 @@ const AboutHeaderOuter = styled.div<{ height: number; pt?: number }>`
   height: ${({ height }) => `${height}px`};
   padding-top: ${({ pt }) => `${pt}px`};
   width: 100%;
-`;
-
-const TitleWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 60%;
-  margin-bottom: 2rem;
-`;
-
-const Title = styled.div`
-  color: var(--white);
-  display: flex;
-  flex-direction: row;
-  font-weight: bold;
-  justify-content: center;
-  position: relative;
-  vertical-align: middle;
 `;
 
 const BodyWrapper = styled.div<{ gap?: number; jc?: string }>`
