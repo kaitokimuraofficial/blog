@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Outlet } from 'react-router-dom';
-import { Header, Footer } from 'src/components/shared';
+import { Header } from 'src/components/shared/Header/header';
+import { Footer } from 'src/stories/Molecules/Footer';
 
 export function Root() {
   return (

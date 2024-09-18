@@ -9,14 +9,14 @@ type Props = {
   title: string;
 };
 
-export function AboutOuterLayout({ content, height, jc, pt, title }: Props) {
+export const SectionUnit = ({ content, height, jc, pt, title }: Props) => {
   return (
     <AboutHeaderOuter height={height} pt={pt}>
       <SeparateMarker title={title} />
       <BodyWrapper jc={jc}>{content}</BodyWrapper>
     </AboutHeaderOuter>
   );
-}
+};
 
 const AboutHeaderOuter = styled.div<{ height: number; pt?: number }>`
   align-items: center;

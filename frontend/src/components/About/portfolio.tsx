@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { AboutOuterLayout } from '../shared';
+import { SectionUnit } from 'src/stories/Molecules/SectionUnit';
 import { Text } from 'src/stories/Atoms/Text';
 
 export function Portfolio() {
   return (
-    <AboutOuterLayout
+    <SectionUnit
       content={<PortfolioElement />}
       height={400}
       title="Portfolio"

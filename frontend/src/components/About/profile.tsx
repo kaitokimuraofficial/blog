@@ -1,15 +1,10 @@
 import styled from 'styled-components';
-import { AboutOuterLayout } from '../shared';
+import { SectionUnit } from 'src/stories/Molecules/SectionUnit';
 import { Text } from 'src/stories/Atoms/Text';
 
 export function Profile() {
   return (
-    <AboutOuterLayout
-      content={<Base />}
-      height={500}
-      pt={100}
-      title="Profile"
-    />
+    <SectionUnit content={<Base />} height={500} pt={100} title="Profile" />
   );
 }
 

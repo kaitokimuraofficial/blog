@@ -1,11 +1,11 @@
-import styled from 'styled-components';
+import styles from './footer.module.css';
 import { NavigationList } from 'src/stories/Molecules/NavigationList';
 import { Text } from 'src/stories/Atoms/Text';
 
 export function Footer() {
   return (
-    <FooterOuter>
-      <NavigationOuter>
+    <div className={styles.footerContainer}>
+      <div className={styles.navContainer}>
         <NavigationList
           title="Page Map"
           items={[
@@ -36,21 +36,8 @@ export function Footer() {
             },
           ]}
         />
-      </NavigationOuter>
+      </div>
       <Text content="Made by @kaitokimuraofficial" isBold={true} color="GRAY" />
-    </FooterOuter>
+    </div>
   );
 }
-
-const FooterOuter = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  background-color: var(--light-black-background-color);
-`;
-
-const NavigationOuter = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 40px;
-`;
