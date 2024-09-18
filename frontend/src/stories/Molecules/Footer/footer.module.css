@@ -1,0 +1,12 @@
+.navContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+
+.footerContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--light-black-background-color);
+}
