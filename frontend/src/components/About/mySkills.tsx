@@ -1,43 +1,32 @@
-import styled from 'styled-components';
 import { AboutOuterLayout } from '../shared';
-import { ContentCard } from 'src/stories/Molecules/ContentCard';
+import { CardGrid } from 'src/stories/Molecules/CardGrid';
 
 const SkillLists = () => {
-  return (
-    <SkillOuter>
-      <ContentCard
-        content="インターンでの開発経験があります。"
-        imgUrl="icons/ruby.svg"
-        title="Ruby"
-      />
-      <ContentCard
-        content="競技プログラミングではPythonを使用しています。"
-        imgUrl="icons/python.svg"
-        title="Python"
-      />
-      <ContentCard
-        content="インターンでの開発経験があります。"
-        imgUrl="icons/typescript.svg"
-        title="TypeScript"
-      />
-      <ContentCard
-        content="このWebサイトのバックエンドをGoで実装しました。"
-        imgUrl="icons/golang.svg"
-        title="Golang"
-      />
-    </SkillOuter>
-  );
-};
+  const prop = [
+    {
+      title: 'Ruby',
+      imgUrl: 'icons/ruby.svg',
+      content: 'インターンでの開発経験があります。',
+    },
+    {
+      title: 'Python',
+      imgUrl: 'icons/python.svg',
+      content: '競技プログラミングではPythonを使用しています。',
+    },
+    {
+      title: 'TypeScript',
+      imgUrl: 'icons/typescript.svg',
+      content: 'インターンでの開発経験があります。',
+    },
+    {
+      title: 'Golang',
+      imgUrl: 'icons/golang.svg',
+      content: 'このWebサイトのバックエンドをGoで実装しました。',
+    },
+  ];
 
-const SkillOuter = styled.div`
-  align-items: flex-start;
-  display: grid;
-  grid-template-columns: 20rem 20rem;
-  grid-row: auto auto;
-  grid-column-gap: 4.5rem;
-  grid-row-gap: 2rem;
-  justify-items: center;
-`;
+  return <CardGrid cards={prop} />;
+};
 
 export function MySkills() {
   return (

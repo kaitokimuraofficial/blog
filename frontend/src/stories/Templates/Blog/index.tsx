@@ -1,8 +1,7 @@
-import { useLoaderData } from 'react-router-dom';
-import { ArticleList } from 'src/components/Blog';
+import { ArticleList } from 'src/stories/Organisms/ArticleList';
 import { Text } from 'src/stories/Atoms/Text';
 
-type ArticleProp = {
+type ArticleType = {
   articleId: number;
   title: string;
   body: string;
@@ -10,9 +9,11 @@ type ArticleProp = {
   lastModified: Date;
 };
 
-export const Blog = () => {
-  const articles = useLoaderData() as ArticleProp[];
+type Prop = {
+  articles: ArticleType[];
+};
 
+export const Blog = ({ articles }: Prop) => {
   return (
     <>
       <Text content="Blog" isBold={true} size="LARGE" />

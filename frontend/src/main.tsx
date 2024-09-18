@@ -1,12 +1,9 @@
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { About } from './stories/Templates/About';
-import { Blog } from './stories/Templates/Blog';
-import { Article } from './routes/article';
+import { AboutPage, ArticlePage, BlogPage, ErrorPage } from './stories/Pages';
 import { ArticleEdit } from './routes/articleEdit';
 import { Root } from './routes/root';
 
-import ErrorPage from './error-page';
 import './style/index.css';
 
 import {
@@ -25,24 +22,24 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <About />,
+        element: <AboutPage />,
         loader: RootLoader,
         action: RootAction,
       },
       {
         path: 'about',
-        element: <About />,
+        element: <AboutPage />,
         loader: AboutLoader,
         action: AboutAction,
       },
       {
         path: 'articles/:articleId',
-        element: <Article />,
+        element: <ArticlePage />,
         loader: ArticleLoader,
       },
       {
         path: 'blog',
-        element: <Blog />,
+        element: <BlogPage />,
         loader: BlogsLoader,
         action: BlogsAction,
       },
