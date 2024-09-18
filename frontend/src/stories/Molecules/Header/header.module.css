@@ -1,0 +1,22 @@
+.headerContainer {
+  background-color: var(--black-background-color);
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  width: 100%;
+}
+
+.headerWrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 1000px;
+}
+
+.textWrapper {
+  align-items: start;
+  display: flex;
+  padding-left: 2rem;
+  flex-direction: column;
+}
