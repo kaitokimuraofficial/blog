@@ -19,11 +19,11 @@ const prop = {
 };
 
 export const Default: Story = {
-  args: { 
+  args: {
     articleId: prop.articleId,
     title: prop.title,
     body: prop.body,
     created: prop.created,
-    lastModified: prop.lastModified
+    lastModified: prop.lastModified,
   },
 };
