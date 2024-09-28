@@ -3,9 +3,9 @@
 
 DOCKER_TAG := latest
 restart: ## Rebuild and start
-	docker-compose down --volumes
-	docker-compose build --no-cache
-	docker-compose up -d
+	docker compose down --volumes
+	docker compose build --no-cache
+	docker compose up -d
 
 build: ## Build docker image to local development
 	docker compose build --no-cache
