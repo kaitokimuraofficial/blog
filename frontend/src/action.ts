@@ -1,3 +1,5 @@
+export async function AboutAction() {}
+
 // import { ActionFunctionArgs } from 'react-router-dom';
 // import { redirect } from 'react-router-dom';
 
@@ -20,3 +22,7 @@
 // }
 
 export async function ArticleEditAction() {}
+
+export async function BlogsAction() {}
+
+export async function RootAction() {}
