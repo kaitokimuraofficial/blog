@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import { SectionUnit } from 'src/stories/Molecules/SectionUnit';
 import { Text } from 'src/stories/Atoms/Text';
 
-export function Profile() {
+export const Profile = () => {
   return (
     <SectionUnit content={<Base />} height={500} pt={100} title="Profile" />
   );
-}
+};
 
 const Base = () => {
   const key = import.meta.env.ENV_IMAGE_URL;

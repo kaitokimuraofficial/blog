@@ -1,7 +1,8 @@
-import { Portfolio, Profile } from 'src/components/About';
 import { SubHeader } from 'src/stories/Molecules/SubHeader';
 import { SectionUnit } from 'src/stories/Molecules/SectionUnit';
 import { CardGrid } from 'src/stories/Molecules/CardGrid';
+import { Portfolio } from 'src/stories/Molecules/Portfolio';
+import { Profile } from 'src/stories/Molecules/Profile';
 
 export const About = () => {
   return (

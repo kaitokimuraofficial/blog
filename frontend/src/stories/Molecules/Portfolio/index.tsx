@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { SectionUnit } from 'src/stories/Molecules/SectionUnit';
+import { SectionUnit } from '../SectionUnit';
 import { Text } from 'src/stories/Atoms/Text';
 
-export function Portfolio() {
+export const Portfolio = () => {
   return (
     <SectionUnit
       content={<PortfolioElement />}
@@ -10,7 +10,7 @@ export function Portfolio() {
       title="Portfolio"
     />
   );
-}
+};
 
 const PortfolioElement = () => {
   return (
