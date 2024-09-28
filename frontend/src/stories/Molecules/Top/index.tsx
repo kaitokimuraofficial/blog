@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import { Logo } from 'src/stories/Atoms/Logo';
 import { Text } from 'src/stories/Atoms/Text';
 
-import styles from './header.module.css';
+import styles from './top.module.css';
 
-export function Header() {
+export const Top = () => {
   return (
     <Outer>
       <Title>Kai BLOG</Title>
@@ -29,7 +29,7 @@ export function Header() {
       </Column>
     </Outer>
   );
-}
+};
 
 const Outer = styled.div`
   align-items: center;
