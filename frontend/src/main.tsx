@@ -1,8 +1,8 @@
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { AboutPage, ArticlePage, BlogPage, ErrorPage } from './stories/Pages';
-import { ArticleEdit } from './routes/articleEdit';
-import { Root } from './routes/root';
+import { ArticleEdit } from './articleEdit';
+import { Root } from './root';
 
 import './style/index.css';
 
