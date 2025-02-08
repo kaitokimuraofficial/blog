@@ -33,6 +33,7 @@ services:
       API_URL: http://blog_backend:8080
     volumes:
       - ./frontend:/app
+    command: ["npm", "run", "dev"]
 
   backend:
     container_name: blog_backend
@@ -47,6 +48,7 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    command: ["air", "-c", ".air.toml"]
 
 volumes:
   db-data:
