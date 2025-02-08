@@ -39,8 +39,7 @@ services:
     container_name: blog_backend
     build:
       context: ./backend
-      args:
-        - target=dev
+      target: dev
     ports:
       - "18000:8080"
     volumes:
