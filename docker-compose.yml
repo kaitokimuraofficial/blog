@@ -9,10 +9,10 @@ services:
       - ./db/my.cnf:/etc/mysql/conf.d/my.cnf
       - db-data:/var/lib/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=password
-      - MYSQL_USER=user
-      - MYSQL_PASSWORD=password
-      - MYSQL_DATABASE=blog
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql_root_password
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: blog
     ports:
       - "3306:3306"
     healthcheck:
@@ -21,6 +21,8 @@ services:
       timeout: 5s
       retries: 5
       start_period: 30s
+    secrets:
+      - mysql_root_password
 
   frontend:
     container_name: blog_frontend
@@ -53,3 +55,7 @@ services:
 
 volumes:
   db-data:
+
+secrets:
+  mysql_root_password:
+     file: db/mysql_root_password.txt
