@@ -1,4 +1,4 @@
-.PHONY: help build up down logs ps test
+.PHONY: help watch build up down logs ps test
 .DEFAULT_GOAL := help
 
 DOCKER_TAG := latest
@@ -6,6 +6,9 @@ restart: ## Rebuild and start
 	docker compose down --volumes
 	docker compose build --no-cache
 	docker compose up -d
+
+watch: ## Exec docker compose watch
+	docker compose watch
 
 build: ## Build docker image to local development
 	docker compose build --no-cache

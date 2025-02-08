@@ -42,12 +42,14 @@ services:
       target: dev
     ports:
       - "18000:8080"
-    volumes:
-      - ./backend:/app
+    develop:
+      watch:
+        - action: rebuild
+          path: ./backend
     depends_on:
       db:
         condition: service_healthy
-    command: ["air", "-c", ".air.toml"]
+    command: ["go", "run", "."]
 
 volumes:
   db-data:
